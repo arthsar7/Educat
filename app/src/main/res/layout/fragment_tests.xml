@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
-            type="ru.student.detected.page1.UserViewModel" />
+            type="androidx.lifecycle.MutableLiveData&lt;Boolean[]>" />
     </data>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -53,31 +53,50 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp"
             android:background="@drawable/_bg__authentication_ek2_shape" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/highScroll"
             android:layout_above="@+id/lowScroll"
+            android:layout_below="@+id/highScroll"
+            android:layout_marginTop="-1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/colorPrimaryDark"
             tools:layout_editor_absoluteX="5dp"
-            tools:layout_editor_absoluteY="0dp"
-            android:background="@color/colorPrimaryDark">
+            tools:layout_editor_absoluteY="0dp">
+
             <RadioGroup
-                android:layout_width="match_parent"
                 android:id="@+id/radio"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
+                <ImageView
+                    android:id="@+id/entry_test_selector"
+                    android:visibility="@{viewModel[0] ? View.VISIBLE : View.INVISIBLE}"
+                    android:layout_width="150dp"
+                    android:layout_height="105dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="165dp"
+                    android:src="@drawable/selected"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
                 <ru.student.detected.page1.ToggleRadioButton
-                    android:button="@null"
                     android:id="@+id/entry_test_btn"
                     android:layout_width="180dp"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/entry_test_selector"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/entry_test_btn"
+                    android:button="@null"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -107,15 +126,24 @@
                         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+                <ImageView
+                    android:visibility="@{viewModel[1] ? View.VISIBLE : View.INVISIBLE}"
+                    android:layout_width="150dp"
+                    android:layout_height="105dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="165dp"
+                    android:src="@drawable/selected"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
                 <ru.student.detected.page1.ToggleRadioButton
-                    android:button="@null"
                     android:id="@+id/test2_btn"
                     android:layout_width="180dp"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="0dp"
-                    android:background="@drawable/unkwn_selector"
+                    android:background="@drawable/unw_btn"
+                    android:button="@null"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"

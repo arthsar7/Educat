@@ -2,8 +2,6 @@
 package ru.student.detected.page1;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 

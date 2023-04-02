@@ -2,7 +2,6 @@ package ru.student.detected.page1;
 
 import android.content.Context;
 import android.util.AttributeSet;
-
 import android.widget.RadioGroup;
 
 public class ToggleRadioButton extends androidx.appcompat.widget.AppCompatRadioButton {
