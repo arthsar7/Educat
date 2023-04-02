@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/authentication">
+    <fragment
+        android:id="@+id/authentication"
+        android:name="ru.student.detected.page1.AuthenticationFragment"
+        android:label="authentication"
+        tools:layout="@layout/fragment_authentication">
+        <action
+            android:id="@+id/auth_to_test"
+            app:destination="@id/tests"
+            app:popUpTo="@id/authentication"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/tests"
+        android:name="ru.student.detected.page1.TestsFragment"
+        android:label="tests"
+        tools:layout="@layout/fragment_tests"/>
+</navigation>
