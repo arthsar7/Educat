@@ -24,8 +24,6 @@ public class AuthenticationFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.signbutton.setOnClickListener(view1 -> {
-            Navigation.findNavController(view).navigate(R.id.auth_to_test);
-        });
+        binding.signbutton.setOnClickListener(view1 -> Navigation.findNavController(view).navigate(R.id.auth_to_test));
     }
 }

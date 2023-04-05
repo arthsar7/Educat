@@ -6,7 +6,7 @@
         <import type="android.view.View"/>
         <variable
             name="viewModel"
-            type="androidx.lifecycle.MutableLiveData&lt;Boolean[]>" />
+            type="ru.student.detected.page1.ToggleRadioBtnViewModel" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -72,8 +72,8 @@
 
 
                 <ImageView
+                    android:visibility="invisible"
                     android:id="@+id/entry_test_selector"
-                    android:visibility="@{viewModel[0] ? View.VISIBLE : View.INVISIBLE}"
                     android:layout_width="150dp"
                     android:layout_height="105dp"
                     android:layout_marginTop="10dp"
@@ -127,7 +127,8 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <ImageView
-                    android:visibility="@{viewModel[1] ? View.VISIBLE : View.INVISIBLE}"
+                    android:visibility="invisible"
+                    android:id="@+id/selector2"
                     android:layout_width="150dp"
                     android:layout_height="105dp"
                     android:layout_marginTop="10dp"
