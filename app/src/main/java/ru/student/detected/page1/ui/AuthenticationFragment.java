@@ -1,4 +1,4 @@
-package ru.student.detected.page1;
+package ru.student.detected.page1.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import ru.student.detected.page1.R;
 import ru.student.detected.page1.databinding.FragmentAuthenticationBinding;
 
 public class AuthenticationFragment extends Fragment {

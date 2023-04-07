@@ -6,7 +6,7 @@
     app:startDestination="@id/authentication">
     <fragment
         android:id="@+id/authentication"
-        android:name="ru.student.detected.page1.AuthenticationFragment"
+        android:name="ru.student.detected.page1.ui.AuthenticationFragment"
         android:label="authentication"
         tools:layout="@layout/fragment_authentication">
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/tests"
-        android:name="ru.student.detected.page1.TestsFragment"
+        android:name="ru.student.detected.page1.ui.TestsFragment"
         android:label="tests"
         tools:layout="@layout/fragment_tests"/>
 </navigation>

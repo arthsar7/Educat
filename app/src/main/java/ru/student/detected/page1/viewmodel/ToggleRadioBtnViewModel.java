@@ -1,4 +1,4 @@
-package ru.student.detected.page1;
+package ru.student.detected.page1.viewmodel;
 
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
@@ -11,6 +11,8 @@ import androidx.lifecycle.ViewModel;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.stream.IntStream;
+
+import ru.student.detected.page1.ToggleRadioButton;
 
 public class ToggleRadioBtnViewModel extends ViewModel {
     private MutableLiveData<ArrayList<ToggleRadioButton>> data = new MutableLiveData<>();

@@ -1,4 +1,4 @@
-package ru.student.detected.page1;
+package ru.student.detected.page1.data.models;
 
 public class User {
     private String name;

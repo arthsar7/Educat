@@ -1,7 +1,9 @@
-package ru.student.detected.page1;
+package ru.student.detected.page1.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import ru.student.detected.page1.data.models.User;
 
 public class UserViewModel extends ViewModel {
 
