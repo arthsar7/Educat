@@ -6,7 +6,7 @@
     app:startDestination="@id/authentication">
     <fragment
         android:id="@+id/authentication"
-        android:name="ru.student.detected.page1.ui.AuthenticationFragment"
+        android:name="ru.student.detected.educator.ui.AuthenticationFragment"
         android:label="authentication"
         tools:layout="@layout/fragment_authentication">
         <action
@@ -14,10 +14,46 @@
             app:destination="@id/tests"
             app:popUpTo="@id/authentication"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_authentication_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
     <fragment
         android:id="@+id/tests"
-        android:name="ru.student.detected.page1.ui.TestsFragment"
+        android:name="ru.student.detected.educator.ui.TestsFragment"
         android:label="tests"
-        tools:layout="@layout/fragment_tests"/>
+        tools:layout="@layout/fragment_tests">
+        <action
+            android:id="@+id/action_tests_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+        <action
+            android:id="@+id/action_tests_to_theoryFragment"
+            app:destination="@id/theoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="ru.student.detected.educator.ui.UserProfileFragment"
+        android:label="UserProfileFragment" >
+        <action
+            android:id="@+id/action_userProfileFragment_to_tests"
+            app:destination="@id/tests" />
+        <action
+            android:id="@+id/action_userProfileFragment_to_theoryFragment"
+            app:destination="@id/theoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/theoryFragment"
+        android:name="ru.student.detected.educator.ui.TheoryFragment"
+        android:label="TheoryFragment" >
+        <action
+            android:id="@+id/action_theoryFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+        <action
+            android:id="@+id/action_theoryFragment_to_tests"
+            app:destination="@id/tests" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="ru.student.detected.educator.ui.SignUpFragment"
+        android:label="SignUpFragment" />
 </navigation>

@@ -1,5 +1,5 @@
 
-package ru.student.detected.page1.ui;
+package ru.student.detected.educator.ui;
 
 import android.os.Bundle;
 
@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
 	}
 
 

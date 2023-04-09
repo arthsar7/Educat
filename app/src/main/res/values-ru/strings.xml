@@ -2,13 +2,13 @@
 <resources>
 
     <string name="app_name">Educator</string>
-    <string name="remember_me_string">Remember me</string>
-    <string name="forgot_password__string"><u>Forgot password?</u></string>
-    <string name="log_in">Log in</string>
-    <string name="password_string">Password</string>
-    <string name="login_string">Login</string>
+    <string name="remember_me_string">Запомнить</string>
+    <string name="forgot_password__string"><u>Забыли пароль?</u></string>
+    <string name="log_in">Войти</string>
+    <string name="password_string">Пароль</string>
+    <string name="login_string">Логин</string>
     <string name="educator">Educator</string>
-    <string name="available_tests">Available tests</string>
+    <string name="available_tests">Тесты</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -18,13 +18,13 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="sign_up">Регистрация</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="homeButtonDescription">homeButton</string>
     <string name="theoryButtonDescription">theoryButton</string>
     <string name="userProfileButton">userProfile</string>
-    <string name="user_profile">User Profile</string>
+    <string name="user_profile">Профиль</string>
     <string name="userId">\@userId</string>
-    <string name="friends_list">FRIENDS LIST</string>
-    <string name="theory">Theory</string>
-    <string name="sign_up">Sign up</string>
+    <string name="friends_list">Список друзей</string>
+    <string name="theory">Теория</string>
 </resources>

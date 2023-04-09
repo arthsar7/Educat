@@ -1,4 +1,4 @@
-package ru.student.detected.page1;
+package ru.student.detected.educator.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
