@@ -1,5 +1,6 @@
-package ru.student.detected.educator.ui;
+package ru.student.detected.educator.ui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

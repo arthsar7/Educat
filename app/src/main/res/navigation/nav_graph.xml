@@ -6,7 +6,7 @@
     app:startDestination="@id/authentication">
     <fragment
         android:id="@+id/authentication"
-        android:name="ru.student.detected.educator.ui.AuthenticationFragment"
+        android:name="ru.student.detected.educator.ui.fragments.AuthenticationFragment"
         android:label="authentication"
         tools:layout="@layout/fragment_authentication">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/tests"
-        android:name="ru.student.detected.educator.ui.TestsFragment"
+        android:name="ru.student.detected.educator.ui.fragments.TestsFragment"
         android:label="tests"
         tools:layout="@layout/fragment_tests">
         <action
@@ -29,10 +29,13 @@
         <action
             android:id="@+id/action_tests_to_theoryFragment"
             app:destination="@id/theoryFragment" />
+        <action
+            android:id="@+id/action_tests_to_entryTestFragment"
+            app:destination="@id/entryTestFragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
-        android:name="ru.student.detected.educator.ui.UserProfileFragment"
+        android:name="ru.student.detected.educator.ui.fragments.UserProfileFragment"
         android:label="UserProfileFragment" >
         <action
             android:id="@+id/action_userProfileFragment_to_tests"
@@ -43,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/theoryFragment"
-        android:name="ru.student.detected.educator.ui.TheoryFragment"
+        android:name="ru.student.detected.educator.ui.fragments.TheoryFragment"
         android:label="TheoryFragment" >
         <action
             android:id="@+id/action_theoryFragment_to_userProfileFragment"
@@ -54,6 +57,11 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="ru.student.detected.educator.ui.SignUpFragment"
+        android:name="ru.student.detected.educator.ui.fragments.SignUpFragment"
         android:label="SignUpFragment" />
+    <fragment
+        android:id="@+id/entryTestFragment"
+        android:name="ru.student.detected.educator.ui.fragments.EntryTestFragment"
+        android:label="fragment_entry_test"
+        tools:layout="@layout/fragment_entry_test" />
 </navigation>

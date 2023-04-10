@@ -1,4 +1,4 @@
-package ru.student.detected.educator.ui;
+package ru.student.detected.educator.ui.views;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.stream.IntStream;
 
-import ru.student.detected.educator.ui.ToggleRadioButton;
+import ru.student.detected.educator.ui.views.ToggleRadioButton;
 
 public class ToggleRadioBtnViewModel extends ViewModel {
     private MutableLiveData<ArrayList<ToggleRadioButton>> data = new MutableLiveData<>();
@@ -26,9 +26,9 @@ public class ToggleRadioBtnViewModel extends ViewModel {
     }
 
     public void setButtonWork(){
-        IntStream.range(0, buttons.size()).forEach(index -> Objects.requireNonNull(data.getValue()).get(index).setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    selectors.get(index).setVisibility(isChecked ? VISIBLE : INVISIBLE);
-                }
+        IntStream.range(0, buttons.size()).forEach(index ->
+                Objects.requireNonNull(data.getValue()).get(index).setOnCheckedChangeListener((buttonView, isChecked) ->
+                        selectors.get(index).setVisibility(isChecked ? VISIBLE : INVISIBLE)
         ));
     }
     public ArrayList<ToggleRadioButton> getButtons() {

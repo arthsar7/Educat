@@ -1,6 +1,7 @@
-package ru.student.detected.educator.ui;
+package ru.student.detected.educator.ui.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,9 @@ import androidx.navigation.Navigation;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import ru.student.detected.educator.data.models.Question;
+import ru.student.detected.educator.ui.views.ToggleRadioButton;
+import ru.student.detected.educator.viewmodel.QuestionViewModel;
 import ru.student.detected.page1.R;
 import ru.student.detected.educator.viewmodel.ToggleRadioBtnViewModel;
 import ru.student.detected.page1.databinding.FragmentTestsBinding;
@@ -42,5 +46,7 @@ public class TestsFragment extends Fragment {
                 Navigation.findNavController(view1).navigate(R.id.action_tests_to_userProfileFragment));
         binding.theory.setOnClickListener(v ->
                 Navigation.findNavController(view).navigate(R.id.action_tests_to_theoryFragment));
+        binding.entryTestSelector.setOnClickListener(view1 ->
+                Navigation.findNavController(view).navigate(R.id.action_tests_to_entryTestFragment));
     }
 }

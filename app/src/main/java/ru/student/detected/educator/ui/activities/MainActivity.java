@@ -1,5 +1,5 @@
 
-package ru.student.detected.educator.ui;
+package ru.student.detected.educator.ui.activities;
 
 import android.os.Bundle;
 
