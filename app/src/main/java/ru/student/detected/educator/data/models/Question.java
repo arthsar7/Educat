@@ -12,11 +12,11 @@ public class Question {
     public int id;
 
     @ColumnInfo(name = "question")
-    public String question;
+    private String question;
     @ColumnInfo(name = "answer")
-    public String answer;
+    private String answer;
     @ColumnInfo(name = "image_id")
-    public int imageId;
+    private int imageId;
 
     public List<String> getVariants() {
         return variants;
@@ -32,11 +32,12 @@ public class Question {
     @ColumnInfo(name = "description")
     private String description;
 
-    public Question(String question, String answer, List<String> variants, String description) {
-        this.question = question;
-        this.answer = answer;
+    public Question(String question, String answer, List<String> variants, String description, Integer imageId) {
+        this.setQuestion(question);
+        this.setAnswer(answer);
         this.variants =  variants;
         this.description = description;
+        this.imageId = imageId;
     }
     public void setVariants(String... variant) {
         Collections.addAll(this.variants, variant);
@@ -63,5 +64,13 @@ public class Question {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 }
