@@ -40,49 +40,60 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:background="@color/purple_200"
             android:id="@+id/varC"
-            android:textAllCaps="false"
-            android:layout_width="wrap_content"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
             android:fontFamily="@font/inter"
             android:text="c)"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/varB"
             app:layout_constraintTop_toBottomOf="@+id/varB" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:background="@color/purple_500"
             android:id="@+id/varA"
-            android:layout_width="wrap_content"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="76dp"
             android:fontFamily="@font/inter"
             android:text="a)"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.102"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/question" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:textAllCaps="false"
-            android:background="@color/purple_700"
             android:id="@+id/varB"
-            android:layout_width="wrap_content"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
+            android:background="@color/purple_700"
             android:fontFamily="@font/inter"
             android:text="b)"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.101"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/varA"
             app:layout_constraintTop_toBottomOf="@+id/varA" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="209dp"
+            android:layout_height="247dp"
+            android:layout_marginTop="44dp"
+            android:src="@drawable/hello_kitten"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.802"
+            app:layout_constraintStart_toEndOf="@+id/varB"
+            app:layout_constraintTop_toBottomOf="@+id/question" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

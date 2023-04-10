@@ -1,5 +1,6 @@
 package ru.student.detected.educator.ui.fragments;
 
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
@@ -62,5 +63,6 @@ public class EntryTestFragment extends Fragment {
         binding.varA.setText(String.format("a)%s", question.getVariants().get(0)));
         binding.varB.setText(String.format("b)%s", question.getVariants().get(1)));
         binding.varC.setText(String.format("c)%s", question.getVariants().get(2)));
+        binding.image.setImageDrawable(ContextCompat.getDrawable(requireContext().getApplicationContext(), question.getImageId()));
     }
 }
