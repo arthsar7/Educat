@@ -27,4 +27,12 @@
     <string name="friends_list">FRIENDS LIST</string>
     <string name="theory">Theory</string>
     <string name="sign_up">Sign up</string>
+    <integer-array name="questionImages">
+        <item>@drawable/unw_selector</item>
+    </integer-array>
+    <string-array name="questions">
+        <item>What is the past tense of the verb "eat"?</item>
+    </string-array>
+    <integer-array name="answers">1</integer-array>
+
 </resources>
