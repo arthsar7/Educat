@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import java.util.Objects;
+
 import ru.student.detected.educator.data.models.Question;
 import ru.student.detected.educator.viewmodel.EntryTestViewModel;
 import ru.student.detected.educator.viewmodel.QuestionViewModel;
@@ -21,6 +23,7 @@ public class EntryTestFragment extends Fragment {
 
     private EntryTestViewModel mViewModel;
     private FragmentEntryTestBinding binding;
+    private int points = 0;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -39,6 +42,13 @@ public class EntryTestFragment extends Fragment {
             }
         }
         );
+        int steps = 0;
+        binding.varA.setOnClickListener(v -> {
+           if(Objects.requireNonNull(qViewModel.
+                   getAllQuestions().getValue()).get(steps).equals(binding.varA.getText())) {
+               points++;
+           }
+        });
     }
 
 //    private void shuffle(List<QuestionEntity> questionList) {
