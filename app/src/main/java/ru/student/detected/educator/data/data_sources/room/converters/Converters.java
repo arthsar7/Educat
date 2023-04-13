@@ -1,4 +1,4 @@
-package ru.student.detected.educator.data.database;
+package ru.student.detected.educator.data.data_sources.room.converters;
 
 import androidx.room.TypeConverter;
 

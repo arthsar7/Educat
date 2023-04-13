@@ -1,38 +1,48 @@
 package ru.student.detected.educator.data.repositories;
 
+import android.app.Application;
 import android.content.Context;
-import android.os.AsyncTask;
-import android.os.Handler;
-import android.os.Looper;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Transformations;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
+import ru.student.detected.educator.data.data_sources.room.QuestionsDataSource;
+import ru.student.detected.educator.data.data_sources.room.entities.QuestionEntity;
+import ru.student.detected.educator.data.data_sources.room.root.QuestionDatabase;
 import ru.student.detected.educator.data.models.Question;
-import ru.student.detected.educator.data.database.QuestionDao;
-import ru.student.detected.educator.data.database.QuestionDatabase;
 
 public class QuestionRepository {
-    QuestionDao questionDao;
+    private final QuestionDatabase databaseSource;
+    private QuestionsDataSource mDataSource;
 
-    public QuestionRepository(Context context) {
-        QuestionDatabase db = QuestionDatabase.getDatabase(context.getApplicationContext());
-        questionDao = db.questionDao();
+    public QuestionRepository(Application application) {
+        mDataSource = new QuestionsDataSource();
+        databaseSource = QuestionDatabase.getDatabase(application);
     }
 
     public LiveData<List<Question>> getAllQuestions() {
-        return questionDao.getAllQuestions();
+        return mDataSource.questions();
+    }
+    public LiveData<List<Question>> getQuestionData() {
+        return Transformations.map(databaseSource.questionDao().getAllQuestions(),
+                questionEntities -> questionEntities.stream().
+                        map(QuestionEntity::toDomainModel).collect(Collectors.toList()));
     }
 
-    public void insertQuestion(Question question) {
-        executor.execute(() -> questionDao.insertAll(question));
+    public void insertQuestion(Question... question) {
+        QuestionDatabase.databaseWriteExecutor.execute(() ->
+                databaseSource.questionDao().insertAll(Arrays.stream(question).map(q ->
+                        new QuestionEntity(q.getQuestion(), q.getAnswer(), q.getVariants(),
+                                q.getDescription())).toArray(QuestionEntity[]::new))
+                );
     }
 
-    private final ExecutorService executor = Executors.newSingleThreadExecutor();
     public void deleteAllQuestions(){
-        executor.execute(() -> questionDao.deleteAll());
+        QuestionDatabase.databaseWriteExecutor.execute(() ->
+                databaseSource.questionDao().deleteAll());
     }
 }

@@ -2,15 +2,15 @@
   "formatVersion": 1,
   "database": {
     "version": 2,
-    "identityHash": "5b09b3c2abaf910d9a4f13710159fe1d",
+    "identityHash": "e2d8eb83c02623e3c34dbea417aff3c1",
     "entities": [
       {
-        "tableName": "Question",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `question` TEXT, `answer` TEXT, `image_id` INTEGER NOT NULL, `variants` TEXT, `description` TEXT)",
+        "tableName": "QuestionEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `question` TEXT, `answer` TEXT, `variants` TEXT, `description` TEXT)",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "id",
+            "fieldPath": "_id",
+            "columnName": "_id",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -25,12 +25,6 @@
             "columnName": "answer",
             "affinity": "TEXT",
             "notNull": false
-          },
-          {
-            "fieldPath": "imageId",
-            "columnName": "image_id",
-            "affinity": "INTEGER",
-            "notNull": true
           },
           {
             "fieldPath": "variants",
@@ -48,7 +42,7 @@
         "primaryKey": {
           "autoGenerate": true,
           "columnNames": [
-            "id"
+            "_id"
           ]
         },
         "indices": [],
@@ -58,7 +52,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5b09b3c2abaf910d9a4f13710159fe1d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e2d8eb83c02623e3c34dbea417aff3c1')"
     ]
   }
 }

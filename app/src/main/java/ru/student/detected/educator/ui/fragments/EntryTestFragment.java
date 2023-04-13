@@ -1,23 +1,15 @@
 package ru.student.detected.educator.ui.fragments;
 
-import androidx.core.content.ContextCompat;
-import androidx.databinding.DataBindingUtil;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 
 import ru.student.detected.educator.data.models.Question;
 import ru.student.detected.educator.viewmodel.EntryTestViewModel;
@@ -41,28 +33,22 @@ public class EntryTestFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         QuestionViewModel qViewModel = new QuestionViewModel(requireActivity().getApplication());
-        qViewModel.getAllQuestions().observe(getViewLifecycleOwner(), questionList -> {
-            if (questionList == null){
-                return;
+        qViewModel.getAllQuestions().observe(getViewLifecycleOwner(), questionEntities -> {
+            for (Question question : questionEntities) {
+                Log.d("Question", question.getQuestion());
             }
-            for(Question question : questionList){
-                Log.d("questions", question.getQuestion());
-                Log.d("questions", question.getDescription());
-            }
-            shuffle(questionList);
-            binding.varA.setOnClickListener(v -> shuffle(questionList));
-
-        });
+        }
+        );
     }
 
-    private void shuffle(List<Question> questionList) {
-        Collections.shuffle(questionList);
-        Question question = questionList.get(0);
-        binding.question.setText(question.getQuestion());
-        binding.description.setText(question.getDescription());
-        binding.varA.setText(String.format("a)%s", question.getVariants().get(0)));
-        binding.varB.setText(String.format("b)%s", question.getVariants().get(1)));
-        binding.varC.setText(String.format("c)%s", question.getVariants().get(2)));
-        binding.image.setImageDrawable(ContextCompat.getDrawable(requireContext().getApplicationContext(), question.getImageId()));
-    }
+//    private void shuffle(List<QuestionEntity> questionList) {
+//        Collections.shuffle(questionList);
+//        QuestionEntity question = questionList.get(0);
+//        binding.question.setText(question.getQuestion());
+//        binding.description.setText(question.getDescription());
+//        binding.varA.setText(String.format("a)%s", question.getVariants().get(0)));
+//        binding.varB.setText(String.format("b)%s", question.getVariants().get(1)));
+//        binding.varC.setText(String.format("c)%s", question.getVariants().get(2)));
+//        binding.image.setImageDrawable(ContextCompat.getDrawable(requireContext().getApplicationContext(), question.getImageId()));
+//    }
 }

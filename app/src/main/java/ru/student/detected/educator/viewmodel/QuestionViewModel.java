@@ -8,22 +8,23 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
+import ru.student.detected.educator.data.data_sources.room.entities.QuestionEntity;
 import ru.student.detected.educator.data.models.Question;
 import ru.student.detected.educator.data.repositories.QuestionRepository;
 
 public class QuestionViewModel extends AndroidViewModel {
-    QuestionRepository questionRepository;
-    LiveData<List<Question>> questionList;
+    private QuestionRepository questionRepository;
+    private LiveData<List<Question>> questionList;
 
     public QuestionViewModel(@NonNull Application application) {
         super(application);
         questionRepository = new QuestionRepository(application);
-        questionList = questionRepository.getAllQuestions();
+        questionList = questionRepository.getQuestionData();
     }
     public LiveData<List<Question>> getAllQuestions(){
         return questionList;
     }
-    public void insertQuestion(Question question){
+    public void insertQuestion(Question... question){
         questionRepository.insertQuestion(question);
     }
     public void deleteAllQuestions(){
