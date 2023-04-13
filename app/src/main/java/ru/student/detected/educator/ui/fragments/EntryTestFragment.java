@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 import ru.student.detected.educator.data.models.Question;

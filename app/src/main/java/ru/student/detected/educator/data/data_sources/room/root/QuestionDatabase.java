@@ -15,7 +15,7 @@ import ru.student.detected.educator.data.data_sources.room.converters.Converters
 import ru.student.detected.educator.data.data_sources.room.entities.QuestionEntity;
 
 @Database(entities = {QuestionEntity.class},
-        version = 2)
+        version = 1)
 @TypeConverters(Converters.class)
 public abstract class QuestionDatabase extends RoomDatabase {
     public abstract QuestionDao questionDao();
