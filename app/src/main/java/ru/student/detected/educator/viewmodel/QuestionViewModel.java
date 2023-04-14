@@ -13,8 +13,8 @@ import ru.student.detected.educator.data.models.Question;
 import ru.student.detected.educator.data.repositories.QuestionRepository;
 
 public class QuestionViewModel extends AndroidViewModel {
-    private QuestionRepository questionRepository;
-    private LiveData<List<Question>> questionList;
+    private final QuestionRepository questionRepository;
+    private final LiveData<List<Question>> questionList;
 
     public QuestionViewModel(@NonNull Application application) {
         super(application);

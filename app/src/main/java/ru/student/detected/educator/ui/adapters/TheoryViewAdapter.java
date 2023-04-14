@@ -14,25 +14,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ru.student.detected.educator.data.models.Theory;
+import ru.student.detected.educator.ui.interfaces.OnTheoryClickListener;
 import ru.student.detected.page1.R;
 import ru.student.detected.page1.databinding.TheoryItemBinding;
 
 
 public class TheoryViewAdapter extends RecyclerView.Adapter<TheoryViewAdapter.TheoryViewHolder>{
     List<Theory> data;
-
+    private final OnTheoryClickListener listener;
     @NonNull
     @Override
     public TheoryViewAdapter.TheoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         TheoryItemBinding binding = TheoryItemBinding.inflate(
                 LayoutInflater.from(parent.getContext()));
-        return new TheoryViewHolder(binding.getRoot());
+        return new TheoryViewHolder(binding.getRoot(), listener);
     }
-    public TheoryViewAdapter(List<Theory> data){
+    public TheoryViewAdapter(List<Theory> data, OnTheoryClickListener listener){
         this.data = data;
+        this.listener = listener;
     }
-    public TheoryViewAdapter(){
+    public TheoryViewAdapter(OnTheoryClickListener listener){
         this.data = new ArrayList<>();
+        this.listener = listener;
     }
     @SuppressLint("NotifyDataSetChanged")
     public void updateData(List<Theory> data){
@@ -48,11 +51,6 @@ public class TheoryViewAdapter extends RecyclerView.Adapter<TheoryViewAdapter.Th
                 getDrawable(holder.itemView.getContext(), data.get(position).getImg()));
         holder.binding.item.setImageDrawable(ContextCompat.
                 getDrawable(holder.itemView.getContext(), data.get(position).getItemImg()));
-        holder.binding.item.setOnClickListener(v ->{
-                holder.binding.bookmark.setImageDrawable(ContextCompat.
-                        getDrawable(holder.itemView.getContext(),R.drawable.bookmark_checked));
-                v.setOnClickListener(null);
-        });
     }
 
     @Override
@@ -62,9 +60,17 @@ public class TheoryViewAdapter extends RecyclerView.Adapter<TheoryViewAdapter.Th
     public static class TheoryViewHolder extends RecyclerView.ViewHolder{
         public TheoryItemBinding binding;
 
-        public TheoryViewHolder(@NonNull View itemView) {
+        public TheoryViewHolder(@NonNull View itemView, OnTheoryClickListener listener) {
             super(itemView);
             binding = DataBindingUtil.bind(itemView);
+            if (binding != null) {
+                binding.item.setOnClickListener(v -> {
+                    if(listener != null) {
+                        int position = getAdapterPosition();
+                        listener.onTheoryClick(position);
+                    }
+                });
+            }
         }
     }
 }

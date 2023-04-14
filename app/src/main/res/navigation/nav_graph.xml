@@ -54,6 +54,9 @@
         <action
             android:id="@+id/action_theoryFragment_to_tests"
             app:destination="@id/tests" />
+        <action
+            android:id="@+id/action_theoryFragment_to_selectedTheoryFragment"
+            app:destination="@id/selectedTheoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -64,4 +67,12 @@
         android:name="ru.student.detected.educator.ui.fragments.EntryTestFragment"
         android:label="fragment_entry_test"
         tools:layout="@layout/fragment_entry_test" />
+    <fragment
+        android:id="@+id/selectedTheoryFragment"
+        android:name="ru.student.detected.educator.ui.fragments.SelectedTheoryFragment"
+        android:label="SelectedTheoryFragment" >
+        <action
+            android:id="@+id/action_selectedTheoryFragment_to_theoryFragment"
+            app:destination="@id/theoryFragment" />
+    </fragment>
 </navigation>
