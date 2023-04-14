@@ -27,12 +27,34 @@
     <string name="friends_list">FRIENDS LIST</string>
     <string name="theory">Theory</string>
     <string name="sign_up">Sign up</string>
-    <integer-array name="questionImages">
-        <item>@drawable/unw_selector</item>
-    </integer-array>
-    <string-array name="questions">
-        <item>What is the past tense of the verb "eat"?</item>
+    <string-array name="theory_descriptions">
+        <item>Read how to use Present Simple form</item>
+        <item>Read how to use Present Continuous form</item>
+        <item>Read how to use Present Perfect form</item>
+        <item>Read how to use Present Perfect \nContinuous</item>
+        <item>Read how to use Present Simple form</item>
     </string-array>
-    <integer-array name="answers">1</integer-array>
+    <string-array name="theory_names">
+        <item>Present Simple</item>
+        <item>Present Continuous</item>
+        <item>Present Perfect</item>
+        <item>Present Perfect\nContinuous</item>
+        <item>Present Simple</item>
+    </string-array>
+    <integer-array name="theory_images">
+        <item>@drawable/theory</item>
+        <item>@drawable/educatlogo</item>
+        <item>@drawable/user</item>
+        <item>@drawable/home</item>
+        <item>@drawable/theory</item>
+    </integer-array>
+    <integer-array name="theory_item_images">
+        <item>@drawable/item_green</item>
+        <item>@drawable/item_red</item>
+        <item>@drawable/item_blue</item>
+        <item>@drawable/item_yellow</item>
+        <item>@drawable/item_green</item>
+    </integer-array>
+
 
 </resources>

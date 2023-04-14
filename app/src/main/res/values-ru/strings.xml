@@ -27,4 +27,18 @@
     <string name="userId">\@userId</string>
     <string name="friends_list">Список друзей</string>
     <string name="theory">Теория</string>
+    <string-array name="theory_descriptions">
+        <item>Прочитайте про использование Present Simple</item>
+        <item>Прочитайте, как использовать Present Continuous</item>
+        <item>Прочитайте, как использовать Present Perfect </item>
+        <item>Прочитайте, как использовать Present Perfect Continuous</item>
+        <item>Прочитайте про использование Present Simple</item>
+    </string-array>
+    <string-array name="theory_names">
+        <item>Present Simple</item>
+        <item>Present Continuous</item>
+        <item>Present Perfect</item>
+        <item>Present Perfect\nContinuous</item>
+        <item>Present Simple</item>
+    </string-array>
 </resources>

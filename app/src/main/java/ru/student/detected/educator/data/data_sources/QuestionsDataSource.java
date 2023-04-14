@@ -1,4 +1,4 @@
-package ru.student.detected.educator.data.data_sources.room;
+package ru.student.detected.educator.data.data_sources;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
