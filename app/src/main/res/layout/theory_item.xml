@@ -4,7 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+        android:id="@+id/whole">
 
         <ImageView
             android:id="@+id/item"
@@ -33,14 +34,14 @@
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="@+id/item"
-            app:layout_constraintEnd_toEndOf="@+id/item"
+            app:layout_constraintEnd_toEndOf="@+id/img"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/theory_name"
             app:layout_constraintTop_toTopOf="@+id/item"

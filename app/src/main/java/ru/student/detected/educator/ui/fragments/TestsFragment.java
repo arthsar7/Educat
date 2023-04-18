@@ -39,11 +39,11 @@ public class TestsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.profile.setOnClickListener(view1 ->
-                Navigation.findNavController(view1).navigate(R.id.action_tests_to_userProfileFragment));
+        binding.profile.setOnClickListener(v ->
+                Navigation.findNavController(view).navigate(R.id.action_tests_to_userProfileFragment));
         binding.theory.setOnClickListener(v ->
                 Navigation.findNavController(view).navigate(R.id.action_tests_to_theoryFragment));
-        binding.entryTestSelector.setOnClickListener(view1 ->
+        binding.entryTestSelector.setOnClickListener(v ->
                 Navigation.findNavController(view).navigate(R.id.action_tests_to_entryTestFragment));
     }
 }

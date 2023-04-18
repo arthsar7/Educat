@@ -5,12 +5,14 @@ public class Theory {
     private String name;
     private String description;
     private int itemImg;
+    private boolean isChecked;
 
     public Theory(int img, String name, String description, int itemImg) {
         this.img = img;
         this.name = name;
         this.description = description;
         this.itemImg = itemImg;
+        isChecked = false;
     }
 
     public int getItemImg() {
@@ -43,5 +45,13 @@ public class Theory {
 
     public void setImg(int img) {
         this.img = img;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 }

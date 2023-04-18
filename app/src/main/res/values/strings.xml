@@ -27,19 +27,27 @@
     <string name="friends_list">FRIENDS LIST</string>
     <string name="theory">Theory</string>
     <string name="sign_up">Sign up</string>
+    <string name="examples">Examples</string>
+    <string name="present_simple">Что такое Present Simple?</string>
+    <string name="present_simple_description">Простое время в английском языке — лучший способ рассказать собеседнику о своих привычках и предпочтениях, о том, что мы умеем делать или делаем каждый день. Это одно из самых часто встречающихся времен в повседневной речи, поэтому важно понять и изучить его с самого начала.</string>
+    <string name="present_simple_rules">I / We / You / They + V\n\nShe / He / It + V + s (es)\n\nI go to work every day — Я хожу на работу каждый день.\n\nI go to work every day — Я хожу на работу каждый день.\n\nThey usually play tennis every weekend — Они обычно играют в теннис каждые выходные.\n\nShe brings me coffee every morning — Она приносит мне кофе каждое утро.\n\nIt snows in winter — Зимой идет снег. \n\nЧтобы составить отрицательное предложение — нужно поставить вспомогательный глагол между подлежащим и глаголом. \n\nI / We / You / They + do not (don’t) + V \n \nShe / He / It + does not (doesn’t) + V \n \nI don’t go to school every day — Я не хожу в школу каждый день \n \nThey don’t drink beer — Они не пьют пиво \n \nShe doesn’t like the weather in London — Ей не нравится погода в Лондоне \n \nHe doesn\'t drive the car — Он не водит машину \n \nОтрицание также можно выразить при помощи отрицательных местоимений и наречий. \n \nNobody speaks Arabic — Никто не говорит по-арабски \n \nI do nothing — Я ничего не делаю \nУзнать больше \n \nВопрос: \nПри составлении вопросительных предложений вспомогательный глагол ставится перед подлежащим и последующим глаголом. Обычно — в начало предложения. \n \nDo + I / we / you / they + V ? \n \nDoes + she / he / it + V ? \n \nDo you like pizza? — Тебе нравится пицца? \n \nDo they play football? — Они играют в футбол? \n \nDoes she learn Russian? — Она изучает русский язык? \n \nDoes he live in Spain? — Он живет в Испании? \n \nИногда в вопросительном предложении употребляются question words (вопросительные слова) и фразы, которые помогают задать более точный и корректный вопрос собеседнику. \n \nК таким словам относятся: how long (как долго), why (почему), where (где) и другие. Как и в других временах, они ставятся в самом начале предложения перед вопросительной конструкцией Present Simple. \n \nQW + do (does) + I / We / You / They / She / He / It + V ? \n \nWhere does he live in Prague? — Где он живет в Праге? \n \nWhy do you drink green tea? — Почему ты пьешь зеленый чай?</string>
+    <string name="present_simple2">I don\'t buy food in the supermarket - Я не покупаю еду в супермаркете</string>
+    <string name="statement">Утверждение</string>
+    <string name="present_perfect_description">Время Present Perfect образуется при помощи вспомогательного глагола have / has и Past Participle (третьей формы смыслового глагола: V3).\n\nВспомогательный глагол меняется в зависимости от подлежащего:\n\n\nI / You / We / They → have (для 1-го, 2-го лица и форм множественного числа)\nShe / He / It → has (для 3-го лица единственного числа)\nЗавершает конструкцию времени Present Perfect смысловой глагол в третьей форме (V3).\n\nЕсли смысловой глагол правильной формы — то его третья форма (V3) образуется при помощи окончания -ed.\n\nЕсли смысловой глагол неправильный — то его третью форму (V3) берем из таблицы неправильных глаголов.\n\nНапример:\n\nto try → tried (пытаться) to cook → cooked (готовить) to finish → finished (заканчивать)\nto get → got (получать) to keep → kept (хранить) to see → seen (видеть)\nУтверждение:\nУтвердительное предложение в Present Perfect образуется при помощи вспомогательного глагола have / has и смыслового глагола с окончанием -ed для правильных глаголов или третьей формы неправильного глагола (V3) по формуле:\n\nI / You / We / They + have + Ved (V3)\nShe / He / It + has + Ved (V3)\nI have decided — Я решил\n\nYou have played — Ты играл\n\nHe has done — Он сделал\n\nIt has turned on — Оно включилось\n\nВ предложениях и повседневной речи часто можно встретить сокращенную форму вспомогательных глаголов have / has. Она образуется при помощи добавления к подлежащему ‘ve (для have) или ‘s (для has):\n\n\n\nI have = I’ve\nYou have = You’ve\nWe have = We’ve\nThey have = They’ve\nShe has = She’s\nHe has = He’s\nIt has = It’s\nI’ve done my tasks — Я выполнил свои задачи\n\nHe’s washed the dishes — Он вымыл посуду\n\nОтрицание:\nОтрицательные предложения в Present Perfect образуется при помощи добавления частицы not после вспомогательного глагола have / has, но перед основным смысловым глаголом. Формула выглядит следующим образом:\n\nI / You / We / They + have not + Ved (V3)\nShe / He / It + has not + Ved (V3)\nI have not done my homework — Я не сделал домашнюю работу\n\n\n\nThey have not come — Они не пришли\n\nShe has not finished her tasks — Она не выполнила свои задачи\n\nIt has not turned on — Оно не включилось\n\nВ отрицании частицу not можно сократить путем присоединения ее к вспомогательному глаголу have / has:\n\nHave not = haven’t\nHas not = hasn’t\nI haven’t washed my hair — Я не помыл волосы\n\nShe hasn’t been to London yet — Она еще не была в Лондоне\n\nВопрос:\nВопросительное предложение в Present Perfect образуется путем постановки вспомогательного глагола have / has в начало предложения. Формула будет такой:\n\nHave + I / You / We / They + Ved (V3)\nHas + She / He / It + Ved (V3)\nHave I bought all the presents? — Я купил все подарки?\n\nHave you finished the classes? — Ты закончил занятия?\n\nHas she just arrived home? — Она только что приехала домой?\n\nHas it turned on? — Оно включилось?\n\nСпециальные вопросы образуются при помощи question words (вопросительных слов). Таких, как when (когда), how (как), what (что), where (где) и других. Далее идет такой же порядок слов, как и в вопросе.\n\nQW + have + I / You / We / They + Ved (V3)\nQW + has + She / He / It + Ved (V3)\nWhat has he just said? — Что он только что сказал?\n\nHow long have you knocked on the door? — Как давно ты стучал в дверь?</string>
+    <string name="progress">PROGRESS</string>
     <string-array name="theory_descriptions">
         <item>Read how to use Present Simple form</item>
         <item>Read how to use Present Continuous form</item>
         <item>Read how to use Present Perfect form</item>
         <item>Read how to use Present Perfect \nContinuous</item>
-        <item>Read how to use Present Simple form</item>
+        <item>Read how to use Past Simple form</item>
     </string-array>
     <string-array name="theory_names">
         <item>Present Simple</item>
         <item>Present Continuous</item>
         <item>Present Perfect</item>
         <item>Present Perfect\nContinuous</item>
-        <item>Present Simple</item>
+        <item>Past Simple</item>
     </string-array>
     <integer-array name="theory_images">
         <item>@drawable/theory</item>
@@ -55,6 +63,25 @@
         <item>@drawable/item_yellow</item>
         <item>@drawable/item_green</item>
     </integer-array>
-
-
+    <string-array name="articles_text">
+        <item> <b>Простое время</b> в английском языке — лучший способ рассказать собеседнику о своих привычках и предпочтениях, о том, что мы умеем делать или делаем каждый день. Это одно из самых часто встречающихся времен в повседневной речи, поэтому важно понять и изучить его с самого начала.\n</item>
+        <item>P</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+    </string-array>
+    <integer-array name="article_image">
+        <item>@drawable/present_simple</item>
+        <item>@drawable/present_continuous</item>
+        <item>@drawable/present_perfect</item>
+        <item>@drawable/present_perfect_continuous</item>
+        <item>@drawable/past_simple</item>
+    </integer-array>
+    <string-array name="examples">
+        <item>I live in london</item>
+        <item>I live in london</item>
+        <item>I live in london</item>
+        <item>I live in london</item>
+        <item>I live in london</item>
+    </string-array>
 </resources>

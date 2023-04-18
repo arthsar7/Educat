@@ -57,6 +57,18 @@
         <action
             android:id="@+id/action_theoryFragment_to_selectedTheoryFragment"
             app:destination="@id/selectedTheoryFragment" />
+        <action
+            android:id="@+id/action_theoryFragment_to_presentContinuousFragment"
+            app:destination="@id/presentContinuousFragment" />
+        <action
+            android:id="@+id/action_theoryFragment_to_presentPerfectFragment"
+            app:destination="@id/presentPerfectFragment" />
+        <action
+            android:id="@+id/action_theoryFragment_to_presentPerfectContinuousFragment"
+            app:destination="@id/presentPerfectContinuousFragment" />
+        <action
+            android:id="@+id/action_theoryFragment_to_pastSimpleFragment"
+            app:destination="@id/pastSimpleFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -69,10 +81,42 @@
         tools:layout="@layout/fragment_entry_test" />
     <fragment
         android:id="@+id/selectedTheoryFragment"
-        android:name="ru.student.detected.educator.ui.fragments.SelectedTheoryFragment"
+        android:name="ru.student.detected.educator.ui.fragments.articles.PresentSimpleFragment"
         android:label="SelectedTheoryFragment" >
         <action
             android:id="@+id/action_selectedTheoryFragment_to_theoryFragment"
+            app:destination="@id/theoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/presentContinuousFragment"
+        android:name="ru.student.detected.educator.ui.fragments.articles.PresentContinuousFragment"
+        android:label="PresentContinuousFragment" >
+        <action
+            android:id="@+id/action_presentContinuousFragment_to_theoryFragment"
+            app:destination="@id/theoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/presentPerfectFragment"
+        android:name="ru.student.detected.educator.ui.fragments.articles.PresentPerfectFragment"
+        android:label="PresentPerfectFragment" >
+        <action
+            android:id="@+id/action_presentPerfectFragment_to_theoryFragment"
+            app:destination="@id/theoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/presentPerfectContinuousFragment"
+        android:name="ru.student.detected.educator.ui.fragments.articles.PresentPerfectContinuousFragment"
+        android:label="PresentPerfectContinuousFragment" >
+        <action
+            android:id="@+id/action_presentPerfectContinuousFragment_to_theoryFragment"
+            app:destination="@id/theoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pastSimpleFragment"
+        android:name="ru.student.detected.educator.ui.fragments.articles.PastSimpleFragment"
+        android:label="PastSimpleFragment" >
+        <action
+            android:id="@+id/action_pastSimpleFragment_to_theoryFragment"
             app:destination="@id/theoryFragment" />
     </fragment>
 </navigation>

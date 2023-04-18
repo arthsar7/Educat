@@ -28,17 +28,30 @@
     <string name="friends_list">Список друзей</string>
     <string name="theory">Теория</string>
     <string-array name="theory_descriptions">
-        <item>Прочитайте про использование Present Simple</item>
+        <item>Прочитайте про использование the Present Simple</item>
         <item>Прочитайте, как использовать Present Continuous</item>
         <item>Прочитайте, как использовать Present Perfect </item>
         <item>Прочитайте, как использовать Present Perfect Continuous</item>
-        <item>Прочитайте про использование Present Simple</item>
+        <item>Прочитайте, как использовать the Past Simple</item>
     </string-array>
     <string-array name="theory_names">
         <item>Present Simple</item>
         <item>Present Continuous</item>
         <item>Present Perfect</item>
         <item>Present Perfect\nContinuous</item>
-        <item>Present Simple</item>
+        <item>Past Simple</item>
+    </string-array>
+    <string name="examples">Примеры</string>
+    <string name="present_simple2">I don\'t buy food in the supermarket - Я не покупаю еду в супермаркете</string>
+    <string name="present_perfect_description">Время Present Perfect образуется при помощи вспомогательного глагола have / has и Past Participle (третьей формы смыслового глагола: V3).\n\nВспомогательный глагол меняется в зависимости от подлежащего:\n\n\nI / You / We / They → have (для 1-го, 2-го лица и форм множественного числа)\nShe / He / It → has (для 3-го лица единственного числа)\nЗавершает конструкцию времени Present Perfect смысловой глагол в третьей форме (V3).\n\nЕсли смысловой глагол правильной формы — то его третья форма (V3) образуется при помощи окончания -ed.\n\nЕсли смысловой глагол неправильный — то его третью форму (V3) берем из таблицы неправильных глаголов.\n\nНапример:\n\nto try → tried (пытаться) to cook → cooked (готовить) to finish → finished (заканчивать)\nto get → got (получать) to keep → kept (хранить) to see → seen (видеть)\nУтверждение:\nУтвердительное предложение в Present Perfect образуется при помощи вспомогательного глагола have / has и смыслового глагола с окончанием -ed для правильных глаголов или третьей формы неправильного глагола (V3) по формуле:\n\nI / You / We / They + have + Ved (V3)\nShe / He / It + has + Ved (V3)\nI have decided — Я решил\n\nYou have played — Ты играл\n\nHe has done — Он сделал\n\nIt has turned on — Оно включилось\n\nВ предложениях и повседневной речи часто можно встретить сокращенную форму вспомогательных глаголов have / has. Она образуется при помощи добавления к подлежащему ‘ve (для have) или ‘s (для has):\n\n\n\nI have = I’ve\nYou have = You’ve\nWe have = We’ve\nThey have = They’ve\nShe has = She’s\nHe has = He’s\nIt has = It’s\nI’ve done my tasks — Я выполнил свои задачи\n\nHe’s washed the dishes — Он вымыл посуду\n\nОтрицание:\nОтрицательные предложения в Present Perfect образуется при помощи добавления частицы not после вспомогательного глагола have / has, но перед основным смысловым глаголом. Формула выглядит следующим образом:\n\nI / You / We / They + have not + Ved (V3)\nShe / He / It + has not + Ved (V3)\nI have not done my homework — Я не сделал домашнюю работу\n\n\n\nThey have not come — Они не пришли\n\nShe has not finished her tasks — Она не выполнила свои задачи\n\nIt has not turned on — Оно не включилось\n\nВ отрицании частицу not можно сократить путем присоединения ее к вспомогательному глаголу have / has:\n\nHave not = haven’t\nHas not = hasn’t\nI haven’t washed my hair — Я не помыл волосы\n\nShe hasn’t been to London yet — Она еще не была в Лондоне\n\nВопрос:\nВопросительное предложение в Present Perfect образуется путем постановки вспомогательного глагола have / has в начало предложения. Формула будет такой:\n\nHave + I / You / We / They + Ved (V3)\nHas + She / He / It + Ved (V3)\nHave I bought all the presents? — Я купил все подарки?\n\nHave you finished the classes? — Ты закончил занятия?\n\nHas she just arrived home? — Она только что приехала домой?\n\nHas it turned on? — Оно включилось?\n\nСпециальные вопросы образуются при помощи question words (вопросительных слов). Таких, как when (когда), how (как), what (что), where (где) и других. Далее идет такой же порядок слов, как и в вопросе.\n\nQW + have + I / You / We / They + Ved (V3)\nQW + has + She / He / It + Ved (V3)\nWhat has he just said? — Что он только что сказал?\n\nHow long have you knocked on the door? — Как давно ты стучал в дверь?</string>
+    <string name="progress">ПРОГРЕСС</string>
+    <string-array name="articles_text">
+        <item> Простое время в английском языке — лучший способ рассказать собеседнику о своих привычках и предпочтениях, о том, что мы умеем делать или делаем каждый день. Это одно из самых часто встречающихся времен в повседневной речи, поэтому важно понять и изучить его с самого начала.\n
+            \n
+        </item>
+        <item>P</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
     </string-array>
 </resources>
