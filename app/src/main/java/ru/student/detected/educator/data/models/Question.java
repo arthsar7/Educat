@@ -9,11 +9,13 @@ public class Question {
     private String answer;
     private List<String> variants;
     private String description;
-    public Question(String question, String answer, List<String> variants, String description) {
+    private int difficulty;
+    public Question(String question, String answer, List<String> variants, String description, int difficulty) {
     this.question = question;
     this.answer = answer;
     this.variants = variants;
     this.description = description;
+    this.difficulty = difficulty;
     }
 
     public String getQuestion() {
@@ -47,5 +49,13 @@ public class Question {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
     }
 }

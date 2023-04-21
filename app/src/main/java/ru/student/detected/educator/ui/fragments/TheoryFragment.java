@@ -1,35 +1,29 @@
 package ru.student.detected.educator.ui.fragments;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
-import ru.student.detected.educator.ui.adapters.TheoryViewAdapter;
 import ru.student.detected.educator.data.models.Theory;
+import ru.student.detected.educator.ui.adapters.TheoryViewAdapter;
 import ru.student.detected.educator.ui.interfaces.OnTheoryClickListener;
 import ru.student.detected.educator.viewmodel.TheoryViewModel;
 import ru.student.detected.page1.R;
@@ -64,6 +58,10 @@ public class TheoryFragment extends Fragment implements OnTheoryClickListener {
                     .updateData(value);
             progressCheck(value);
         });
+        binding.theory.setOnLongClickListener(v -> {
+            Toast.makeText(requireContext(), "Halo", Toast.LENGTH_SHORT).show();
+            return true;
+        });
     }
 
     private void progressCheck(List<Theory> value) {
@@ -74,13 +72,13 @@ public class TheoryFragment extends Fragment implements OnTheoryClickListener {
         String color = "#" + progressColor +"ff" + progressColor;
         binding.numProgress.setTextColor(Color.parseColor(color));
         binding.textProgress.setTextColor(Color.parseColor(color));
-        if(progress == 100){
+        if(progress == 100) {
             showDialogOneTime();
         }
     }
 
     private void showDialogOneTime() {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences preferences = requireContext().getSharedPreferences("InitialDialog", Context.MODE_PRIVATE);
         boolean initialDialogDisplayed = preferences.getBoolean("InitialDialog", false);
         if (!initialDialogDisplayed) {
             SharedPreferences.Editor editor = preferences.edit();
@@ -89,7 +87,8 @@ public class TheoryFragment extends Fragment implements OnTheoryClickListener {
             AlertDialog dialog = new AlertDialog.Builder(getContext()).create();
             dialog.setTitle("Прогресс завершен");
             dialog.setMessage("Вы прочитали всю теорию");
-            dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Открыть следующие статьи(потом доделаю)",
+            dialog.setButton(AlertDialog.BUTTON_POSITIVE,
+                    "Открыть следующие статьи(потом доделаю)",
                     (dialog1, which) -> {
                 dialog1.dismiss();
             });

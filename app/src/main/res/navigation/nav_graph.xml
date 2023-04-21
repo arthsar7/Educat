@@ -15,8 +15,8 @@
             app:popUpTo="@id/authentication"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_authentication_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
+            android:id="@+id/action_authentication_to_registerFragment"
+            app:destination="@id/registerFragment" />
     </fragment>
     <fragment
         android:id="@+id/tests"
@@ -71,14 +71,22 @@
             app:destination="@id/pastSimpleFragment" />
     </fragment>
     <fragment
-        android:id="@+id/signUpFragment"
-        android:name="ru.student.detected.educator.ui.fragments.SignUpFragment"
-        android:label="SignUpFragment" />
+        android:id="@+id/registerFragment"
+        android:name="ru.student.detected.educator.ui.fragments.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_authentication"
+            app:destination="@id/authentication" />
+    </fragment>
     <fragment
         android:id="@+id/entryTestFragment"
         android:name="ru.student.detected.educator.ui.fragments.EntryTestFragment"
         android:label="fragment_entry_test"
-        tools:layout="@layout/fragment_entry_test" />
+        tools:layout="@layout/fragment_entry_test" >
+        <action
+            android:id="@+id/action_entryTestFragment_to_tests"
+            app:destination="@id/tests" />
+    </fragment>
     <fragment
         android:id="@+id/selectedTheoryFragment"
         android:name="ru.student.detected.educator.ui.fragments.articles.PresentSimpleFragment"

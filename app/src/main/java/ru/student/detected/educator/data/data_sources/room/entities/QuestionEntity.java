@@ -23,18 +23,19 @@ public class QuestionEntity {
     public List<String> variants;
     @ColumnInfo(name = "description")
     public String description;
-    public QuestionEntity() {
-    }
-    public QuestionEntity(String question, String answer, List<String> variants, String description) {
+    @ColumnInfo(name = "difficulty")
+    public int difficulty;
+    public QuestionEntity(String question, String answer, List<String> variants, String description, int difficulty) {
         this.question = question;
         this.answer = answer;
         this.variants = variants;
         this.description = description;
+        this.difficulty = difficulty;
     }
 
 
     public Question toDomainModel() {
-        return new Question(question, answer, variants, description);
+        return new Question(question, answer, variants, description, difficulty);
     }
 
 

@@ -7,8 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Test {
-    private List<Question> questions;
+    private final List<Question> questions;
     private int points;
+    private boolean isUnlocked;
 
     public int getPoints() {
         return points;
@@ -16,6 +17,7 @@ public class Test {
     public Test(List<Question> questions){
         points = 0;
         this.questions = questions;
+        isUnlocked = false;
     }
     public Test(){
         points = 0;
@@ -25,16 +27,15 @@ public class Test {
         if (userAnswer.equals(questions.get(num).getAnswer())){
             points++;
         }
-
     }
-    public void addQuestions(Question... question){
-        questions.addAll(Arrays.asList(question));
+    public void unlock(){
+        isUnlocked = true;
     }
     private void setPoints(int points) {
         this.points = points;
     }
 
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
+    public boolean isUnlocked() {
+        return isUnlocked;
     }
 }

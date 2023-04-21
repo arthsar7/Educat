@@ -55,7 +55,6 @@ public class PresentContinuousFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.back.setOnClickListener(v-> {
-            mediaPlayer.get().release();
             Navigation.findNavController(view).
                     navigate(R.id.action_presentContinuousFragment_to_theoryFragment);
         });

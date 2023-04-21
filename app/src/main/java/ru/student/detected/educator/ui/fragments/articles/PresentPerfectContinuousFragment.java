@@ -53,7 +53,6 @@ public class PresentPerfectContinuousFragment extends Fragment {
         binding.back.setOnClickListener(v-> {
             Navigation.findNavController(view).
                     navigate(R.id.action_presentPerfectContinuousFragment_to_theoryFragment);
-            mediaPlayer.get().release();
         });
     }
 }

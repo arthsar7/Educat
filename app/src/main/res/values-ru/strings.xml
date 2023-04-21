@@ -34,6 +34,9 @@
         <item>Прочитайте, как использовать Present Perfect Continuous</item>
         <item>Прочитайте, как использовать the Past Simple</item>
     </string-array>
+    <string name="choose_your_english_level">
+        Выберите свой уровень английского
+    </string>
     <string-array name="theory_names">
         <item>Present Simple</item>
         <item>Present Continuous</item>
@@ -54,4 +57,9 @@
         <item>D</item>
         <item>E</item>
     </string-array>
+    <string name="beginner">НОВИЧОК</string>
+    <string name="intermediate">СРЕДНИЙ</string>
+    <string name="advanced">ПРОДВИНУТЫЙ</string>
+    <string name="register_btn">Создать аккаунт</string>
+    <string name="name_surname">Имя Фамилия</string>
 </resources>

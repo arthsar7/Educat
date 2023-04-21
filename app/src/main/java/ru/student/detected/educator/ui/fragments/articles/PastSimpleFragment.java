@@ -49,7 +49,6 @@ public class PastSimpleFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.back.setOnClickListener(v-> {
-            mediaPlayer.get().release();
             Navigation.findNavController(view).navigate(R.id.action_pastSimpleFragment_to_theoryFragment);
         });
     }

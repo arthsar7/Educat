@@ -153,9 +153,10 @@
 
                 <Button
                     android:id="@+id/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="PLAY"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:text=""
+                    android:background="@drawable/btn_sound"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.897"
                     app:layout_constraintStart_toStartOf="parent"
@@ -163,9 +164,10 @@
 
                 <Button
                     android:id="@+id/button2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="play"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:text=""
+                    android:background="@drawable/btn_sound"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.897"
                     app:layout_constraintStart_toStartOf="parent"

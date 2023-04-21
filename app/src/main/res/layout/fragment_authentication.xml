@@ -64,38 +64,6 @@
             android:textAllCaps="false"
             android:textColor="@color/white" />
 
-        <RelativeLayout android:id="@+id/rememberme"
-            android:layout_marginTop="480dp"
-            android:layout_marginStart="58dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-
-            <View   android:id="@+id/rememberbutton"
-                android:background="@drawable/rememberbutton_shape"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="4dp"
-                android:layout_width="13dp"
-                android:layout_height="13dp" />
-
-            <TextView
-                android:id="@+id/remember_me"
-                android:layout_width="123dp"
-                android:layout_height="30dp"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="center_horizontal|center"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="-4dp"
-                android:layout_toEndOf="@+id/rememberbutton"
-                android:fontFamily="@font/inter"
-                android:gravity="center"
-                android:text="@string/remember_me_string"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-
-        </RelativeLayout>
-
         <TextView
             android:id="@+id/forgot_password_"
             android:layout_width="wrap_content"

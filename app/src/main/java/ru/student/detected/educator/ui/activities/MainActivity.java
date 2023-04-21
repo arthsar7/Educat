@@ -1,7 +1,7 @@
 
 package ru.student.detected.educator.ui.activities;
 
-import static androidx.core.splashscreen.SplashScreen.*;
+import static androidx.core.splashscreen.SplashScreen.installSplashScreen;
 
 import android.os.Bundle;
 
