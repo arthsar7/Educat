@@ -21,19 +21,6 @@ public class TheoryViewModel extends AndroidViewModel {
         TheoryRepository repository = new TheoryRepository();
         theories = repository.getTheoryData(application);
     }
-    public String progress(){
-        if(theories.getValue()!=null) {
-            int all_theory = theories.getValue().size();
-            int counter = 0;
-            for (Theory theory : theories.getValue()){
-                if(theory.isChecked()){
-                    counter++;
-                }
-            }
-            return String.valueOf((int)((float) counter/all_theory*100));
-        }
-        return "0";
-    };
     public void setSelectedTheory(Theory theory) {
         selectedTheory.setValue(theory);
     }
@@ -45,5 +32,6 @@ public class TheoryViewModel extends AndroidViewModel {
         return theories;
     }
     public void addTheories(Theory theories) {
+        //TODO: добавить в базу данных
     }
 }

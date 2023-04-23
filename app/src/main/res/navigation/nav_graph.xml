@@ -86,6 +86,9 @@
         <action
             android:id="@+id/action_entryTestFragment_to_tests"
             app:destination="@id/tests" />
+        <action
+            android:id="@+id/action_entryTestFragment_to_pairsFragment"
+            app:destination="@id/pairsFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectedTheoryFragment"
@@ -127,4 +130,8 @@
             android:id="@+id/action_pastSimpleFragment_to_theoryFragment"
             app:destination="@id/theoryFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/pairsFragment"
+        android:name="ru.student.detected.educator.ui.fragments.PairsFragment"
+        android:label="PairsFragment" />
 </navigation>

@@ -42,6 +42,7 @@
     <string name="register_btn">Создать аккаунт</string>
     <string name="already_have_an_account">Уже есть аккаунт?</string>
     <string name="name_surname">Name Surname</string>
+    <string name="tap_the_pairs">Tap the pairs</string>
     <string-array name="theory_descriptions">
         <item>Read how to use Present Simple form</item>
         <item>Read how to use Present Continuous form</item>
@@ -84,11 +85,33 @@
         <item>@drawable/present_perfect_continuous</item>
         <item>@drawable/past_simple</item>
     </integer-array>
-    <string-array name="examples">
-        <item>I live in london</item>
-        <item>I live in london</item>
-        <item>I live in london</item>
-        <item>I live in london</item>
-        <item>I live in london</item>
+
+    <string-array name="rus_words">
+        <item>персик</item>
+        <item>яблоко</item>
+        <item>арбуз</item>
+        <item>дом</item>
+        <item>национальность</item>
+        <item>электричество</item>
+        <item>промышленность</item>
+        <item>уверенность</item>
+        <item>поколение</item>
+        <item>потомство</item>
+        <item>экземпляр</item>
+        <item>следствие</item>
+    </string-array>
+    <string-array name="eng_words">
+        <item>peach</item>
+        <item>apple</item>
+        <item>watermelon</item>
+        <item>house</item>
+        <item>nationality</item>
+        <item>electricity</item>
+        <item>industry</item>
+        <item>confidence</item>
+        <item>generation</item>
+        <item>offspring</item>
+        <item>instance</item>
+        <item>consequence</item>
     </string-array>
 </resources>

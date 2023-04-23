@@ -34,10 +34,10 @@ public class PresentPerfectFragment extends Fragment {
         binding.setLifecycleOwner(getViewLifecycleOwner());
         binding.setTheoryViewModel(theoryViewModel);
         binding.button.setOnClickListener(v -> {
-            playIfNotPlaying(R.raw.present_perfect1);
+            playIfNotPlaying(R.raw.present_perfect2);
         });
         binding.button2.setOnClickListener(v ->
-                playIfNotPlaying(R.raw.present_perfect2));
+                playIfNotPlaying(R.raw.present_perfect1));
         return binding.getRoot();
     }
     private void playIfNotPlaying(int audioID) {

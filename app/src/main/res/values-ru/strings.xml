@@ -62,4 +62,5 @@
     <string name="advanced">ПРОДВИНУТЫЙ</string>
     <string name="register_btn">Создать аккаунт</string>
     <string name="name_surname">Имя Фамилия</string>
+    <string name="tap_the_pairs">Соотнеси слова</string>
 </resources>

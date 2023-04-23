@@ -1,11 +1,15 @@
 package ru.student.detected.educator.ui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -38,6 +42,12 @@ public class EntryTestFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_entry_test, container, false);
         mViewModel = new ViewModelProvider(requireActivity()).get(EntryTestViewModel.class);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         QuestionViewModel qViewModel = new QuestionViewModel(requireActivity().getApplication());
         qViewModel.getAllQuestions().observe(getViewLifecycleOwner(), questions -> {
             for (Question question : questions) {
@@ -47,6 +57,7 @@ public class EntryTestFragment extends Fragment {
         EntryTestDialog dialog = new EntryTestDialog(requireContext()) {
             @Override
             public void onBeginnerClick(View beginner) {
+                mViewModel.setDifficulty(1);
                 qViewModel.getAllQuestions().observe(getViewLifecycleOwner(), questions -> {
                     currentQuestions = questions.stream().
                             filter(question -> question.getDifficulty() == 1).collect(Collectors.toList());
@@ -55,6 +66,7 @@ public class EntryTestFragment extends Fragment {
             }
             @Override
             public void onIntermediateClick(View intermediate) {
+                mViewModel.setDifficulty(2);
                 qViewModel.getAllQuestions().observe(getViewLifecycleOwner(), questions -> {
                     currentQuestions = questions.stream().
                             filter(question -> question.getDifficulty() == 2).collect(Collectors.toList());
@@ -63,6 +75,7 @@ public class EntryTestFragment extends Fragment {
             }
             @Override
             public void onAdvancedClick(View advanced) {
+                mViewModel.setDifficulty(3);
                 qViewModel.getAllQuestions().observe(getViewLifecycleOwner(), questions -> {
                     currentQuestions = questions.stream().
                             filter(question -> question.getDifficulty() == 3).collect(Collectors.toList());
@@ -76,13 +89,21 @@ public class EntryTestFragment extends Fragment {
             }
         };
         dialog.show();
-        return binding.getRoot();
+        dialog.setOnKeyListener((dialogInterface, keycode, event) ->{
+            if (keycode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
+                dialog.dismiss();
+                Navigation.findNavController(requireView())
+                        .navigate(R.id.action_entryTestFragment_to_tests);
+            }
+            return true;
+        });
+        binding.varA.setOnClickListener(v->{
+            Navigation.findNavController(requireView()).navigate(
+                    R.id.action_entryTestFragment_to_pairsFragment
+            );
+        });
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
 
     private void shuffle(List<Question> questionList) {
         Collections.shuffle(questionList);
