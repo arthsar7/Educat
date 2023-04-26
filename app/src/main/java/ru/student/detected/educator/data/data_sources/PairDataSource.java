@@ -4,6 +4,7 @@ import android.app.Application;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import ru.student.detected.educator.data.models.Pair;
@@ -26,6 +27,7 @@ public class PairDataSource {
                 k = 1;
             k++;
         }
+        Collections.shuffle(pairs);
         return pairs;
     }
 }

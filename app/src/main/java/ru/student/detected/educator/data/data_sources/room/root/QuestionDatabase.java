@@ -15,7 +15,10 @@ import ru.student.detected.educator.data.data_sources.room.converters.Converters
 import ru.student.detected.educator.data.data_sources.room.entities.QuestionEntity;
 
 @Database(entities = {QuestionEntity.class},
-        version = 2)
+        version = 2,
+autoMigrations = {
+        @androidx.room.AutoMigration(from = 1, to = 2)
+})
 @TypeConverters(Converters.class)
 public abstract class QuestionDatabase extends RoomDatabase {
     public abstract QuestionDao questionDao();
@@ -27,7 +30,8 @@ public abstract class QuestionDatabase extends RoomDatabase {
             synchronized (QuestionDatabase.class){
                 if(INSTANCE == null){
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            QuestionDatabase.class, "questions-database").fallbackToDestructiveMigration().build();
+                            QuestionDatabase.class, "questions-database").
+                            createFromAsset("db/QuestionEntity.db").build();
                 }
             }
         }

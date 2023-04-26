@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import ru.student.detected.educator.data.models.Theory;
 import ru.student.detected.educator.ui.adapters.TheoryViewAdapter;
@@ -40,6 +41,7 @@ public class TheoryFragment extends Fragment implements OnTheoryClickListener {
         return binding.getRoot();
     }
 
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -56,6 +58,11 @@ public class TheoryFragment extends Fragment implements OnTheoryClickListener {
             ((TheoryViewAdapter)
                     Objects.requireNonNull(binding.itemList.getAdapter()))
                     .updateData(value);
+            value.forEach(theory -> {
+                theory.setChecked(requireContext().
+                        getSharedPreferences("theory", Context.MODE_PRIVATE)
+                        .getBoolean(theory.getName(), false));
+            });
             progressCheck(value);
         });
         binding.theory.setOnLongClickListener(v -> {
@@ -67,43 +74,46 @@ public class TheoryFragment extends Fragment implements OnTheoryClickListener {
     private void progressCheck(List<Theory> value) {
         int c = (int) value.stream().filter(Theory::isChecked).count();
         int progress = (int)((float) c/ value.size()*100);
-        binding.numProgress.setText(MessageFormat.format("{0}%", progress));
-        String progressColor = 10 - progress/10 == 10? "ff" : (10 - progress/10) + "" + (10 - progress/10);
-        String color = "#" + progressColor +"ff" + progressColor;
-        binding.numProgress.setTextColor(Color.parseColor(color));
-        binding.textProgress.setTextColor(Color.parseColor(color));
+        requireContext().getSharedPreferences("theoryProgress", Context.MODE_PRIVATE)
+                .edit().putInt("theoryProgress", progress).apply();
+        if(progress!=0)
+            binding.numProgress.setText(MessageFormat.format("{0}%", progress));
+        setProgressColor(progress);
         if(progress == 100) {
-            showDialogOneTime();
+            SharedPreferences preferences = requireContext().getSharedPreferences("TheoryIsChecked", Context.MODE_PRIVATE);
+            boolean isChecked = preferences.getBoolean("isChecked", false);
+            if(!isChecked) {
+                preferences.edit().putBoolean("isChecked", true).apply();
+                showDialogOneTime();
+            }
         }
     }
 
+    private void setProgressColor(int progress) {
+        String progressColor = 10 - progress /10 == 10? "ff" : (10 - progress /10) + "" + (10 - progress /10);
+        String color = "#" + progressColor +"ff" + progressColor;
+        binding.numProgress.setTextColor(Color.parseColor(color));
+        binding.textProgress.setTextColor(Color.parseColor(color));
+    }
+
     private void showDialogOneTime() {
-        SharedPreferences preferences = requireContext().getSharedPreferences("InitialDialog", Context.MODE_PRIVATE);
-        boolean initialDialogDisplayed = preferences.getBoolean("InitialDialog", false);
-        if (!initialDialogDisplayed) {
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean("InitialDialog", true);
-            editor.apply();
-            AlertDialog dialog = new AlertDialog.Builder(getContext()).create();
-            dialog.setTitle("Прогресс завершен");
-            dialog.setMessage("Вы прочитали всю теорию");
-            dialog.setButton(AlertDialog.BUTTON_POSITIVE,
-                    "Открыть следующие статьи(потом доделаю)",
-                    (dialog1, which) -> {
-                dialog1.dismiss();
-            });
-            dialog.show();
-        }
+        AlertDialog dialog = new AlertDialog.Builder(getContext()).create();
+        dialog.setTitle("Прогресс завершен");
+        dialog.setMessage("Вы прочитали всю теорию");
+        dialog.setButton(AlertDialog.BUTTON_POSITIVE,
+                "Открыть следующие статьи(потом доделаю)",
+                (dialog1, which) -> {
+            dialog1.dismiss();
+        });
+        dialog.show();
     }
 
     @Override
     public void onTheoryClick(int position, View itemView) {
-        Theory theory = Objects.requireNonNull(theoryViewModel.getTheories().getValue()).get(position);
-        theoryViewModel.setSelectedTheory(theory);
-        theoryViewModel.getSelectedTheory().observe(getViewLifecycleOwner(), (value)-> {
-            value.setChecked(true);
+        theoryViewModel.getTheories().observe(getViewLifecycleOwner(), (value) -> {
+            value.get(position).setChecked(true);
         });
-        int[] fragment_ids = {
+        final int[] fragment_ids = {
             R.id.action_theoryFragment_to_selectedTheoryFragment,
             R.id.action_theoryFragment_to_presentContinuousFragment,
             R.id.action_theoryFragment_to_presentPerfectFragment,

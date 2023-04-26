@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_tests_to_entryTestFragment"
             app:destination="@id/entryTestFragment" />
+        <action
+            android:id="@+id/action_tests_to_test2Fragment"
+            app:destination="@id/test2Fragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
@@ -89,6 +92,9 @@
         <action
             android:id="@+id/action_entryTestFragment_to_pairsFragment"
             app:destination="@id/pairsFragment" />
+        <action
+            android:id="@+id/action_entryTestFragment_self"
+            app:destination="@id/entryTestFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectedTheoryFragment"
@@ -133,5 +139,26 @@
     <fragment
         android:id="@+id/pairsFragment"
         android:name="ru.student.detected.educator.ui.fragments.PairsFragment"
-        android:label="PairsFragment" />
+        android:label="PairsFragment" >
+        <action
+            android:id="@+id/action_pairsFragment_self"
+            app:destination="@id/pairsFragment" />
+        <action
+            android:id="@+id/action_pairsFragment_to_entryTestFragment"
+            app:destination="@id/entryTestFragment" />
+        <action
+            android:id="@+id/action_pairsFragment_to_tests"
+            app:destination="@id/tests" />
+    </fragment>
+    <fragment
+        android:id="@+id/test2Fragment"
+        android:name="ru.student.detected.educator.ui.fragments.Test2Fragment"
+        android:label="Test2Fragment" >
+        <action
+            android:id="@+id/action_test2Fragment_to_tests"
+            app:destination="@id/tests" />
+        <action
+            android:id="@+id/action_test2Fragment_self"
+            app:destination="@id/test2Fragment" />
+    </fragment>
 </navigation>

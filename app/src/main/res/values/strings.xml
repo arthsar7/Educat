@@ -43,6 +43,8 @@
     <string name="already_have_an_account">Уже есть аккаунт?</string>
     <string name="name_surname">Name Surname</string>
     <string name="tap_the_pairs">Tap the pairs</string>
+    <string name="question">Question</string>
+    <string name="award">ДОБЫЧА</string>
     <string-array name="theory_descriptions">
         <item>Read how to use Present Simple form</item>
         <item>Read how to use Present Continuous form</item>
@@ -99,6 +101,62 @@
         <item>потомство</item>
         <item>экземпляр</item>
         <item>следствие</item>
+        <item>книга</item>
+        <item>ручка</item>
+        <item>компьютер</item>
+        <item>собака</item>
+        <item>океан</item>
+        <item>гора</item>
+        <item>долина</item>
+        <item>остров</item>
+        <item>амбиция</item>
+        <item>настойчивость</item>
+        <item>решительность</item>
+        <item>устойчивость</item>
+        <item>мечта</item>
+        <item>стремление</item>
+        <item>желание</item>
+        <item>пожелание</item>
+        <item>вызов</item>
+        <item>препятствие</item>
+        <item>трудность</item>
+        <item>напряженность</item>
+        <item>восприятие</item>
+        <item>перспектива</item>
+        <item>точка зрения</item>
+        <item>взгляд</item>
+        <item>счастье</item>
+        <item>радость</item>
+        <item>любовь</item>
+        <item>удовольствие</item>
+        <item>здоровье</item>
+        <item>благосостояние</item>
+        <item>хорошее самочувствие</item>
+        <item>фитнес</item>
+        <item>знание</item>
+        <item>мудрость</item>
+        <item>понимание</item>
+        <item>прозрение</item>
+        <item>еда</item>
+        <item>кухня</item>
+        <item>блюдо</item>
+        <item>прием пищи</item>
+        <item>путешествие</item>
+        <item>поездка</item>
+        <item>приключение</item>
+        <item>экспедиция</item>
+        <item>технология</item>
+        <item>инновация</item>
+        <item>инженерия</item>
+        <item>изобретение</item>
+        <item>гнев</item>
+        <item>ярость</item>
+        <item>бешенство</item>
+        <item>обида</item>
+
+
+
+
     </string-array>
     <string-array name="eng_words">
         <item>peach</item>
@@ -113,5 +171,59 @@
         <item>offspring</item>
         <item>instance</item>
         <item>consequence</item>
+        <item>book</item>
+        <item>pen</item>
+        <item>computer</item>
+        <item>dog</item>
+        <item>ocean</item>
+        <item>mountain</item>
+        <item>valley</item>
+        <item>island</item>
+        <item>ambition</item>
+        <item>perseverance</item>
+        <item>determination</item>
+        <item>resilience</item>
+        <item>dream</item>
+        <item>aspiration</item>
+        <item>desire</item>
+        <item>wish</item>
+        <item>challenge</item>
+        <item>obstacle</item>
+        <item>difficulty</item>
+        <item>hardship</item>
+        <item>perception</item>
+        <item>perspective</item>
+        <item>viewpoint</item>
+        <item>outlook</item>
+        <item>happiness</item>
+        <item>joy</item>
+        <item>love</item>
+        <item>satisfaction</item>
+        <item>health</item>
+        <item>welfare</item>
+        <item>well-being</item>
+        <item>fitness</item>
+        <item>knowledge</item>
+        <item>wisdom</item>
+        <item>understanding</item>
+        <item>insight</item>
+        <item>food</item>
+        <item>cuisine</item>
+        <item>dish</item>
+        <item>meal</item>
+        <item>travel</item>
+        <item>journey</item>
+        <item>adventure</item>
+        <item>expedition</item>
+        <item>technology</item>
+        <item>innovation</item>
+        <item>engineering</item>
+        <item>invention</item>
+        <item>fear</item>
+        <item>dread</item>
+        <item>anxiety</item>
+        <item>worry</item>
+
+
     </string-array>
 </resources>

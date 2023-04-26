@@ -3,10 +3,80 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="ru.student.detected.educator.ui.fragments.EntryTestFragment">
+    <data>
+        <variable
+            name="testModel"
+            type="ru.student.detected.educator.viewmodel.EntryTestViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/_bg__authentication_ek2_shape">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/highBar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/_bg__authentication_ek2_shape"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginEnd="48dp"
+                    android:contentDescription="logo"
+                    android:rotation="-90"
+                    android:src="@drawable/fish"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:text="Приключение"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:text="2"
+                    android:fontFamily="@font/inter"
+                    android:id="@+id/points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/award"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/inter"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
 
         <TextView
             android:id="@+id/question"
@@ -14,7 +84,6 @@
             android:layout_height="154dp"
             android:layout_marginTop="144dp"
             android:fontFamily="@font/inter"
-            android:text="Question"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:background="@color/colorPrimaryDark"
@@ -23,29 +92,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:text="Description"
-            android:textSize="30sp"
+            android:layout_marginBottom="20dp"
             android:fontFamily="@font/inter"
-            android:textStyle="bold"
             android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/question"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
-
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/varC"
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
             android:fontFamily="@font/inter"
-            android:text="c)"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -55,28 +121,26 @@
             app:layout_constraintTop_toBottomOf="@+id/varB" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:background="@color/purple_500"
             android:id="@+id/varA"
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="76dp"
+            android:background="@color/purple_500"
             android:fontFamily="@font/inter"
-            android:text="a)"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.102"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/question" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/varB"
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="@color/purple_700"
             android:fontFamily="@font/inter"
-            android:text="b)"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -85,15 +149,5 @@
             app:layout_constraintStart_toStartOf="@+id/varA"
             app:layout_constraintTop_toBottomOf="@+id/varA" />
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="209dp"
-            android:layout_height="247dp"
-            android:layout_marginTop="44dp"
-            android:src="@drawable/hello_kitten"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.802"
-            app:layout_constraintStart_toEndOf="@+id/varB"
-            app:layout_constraintTop_toBottomOf="@+id/question" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

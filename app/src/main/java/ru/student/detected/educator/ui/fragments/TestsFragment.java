@@ -1,5 +1,6 @@
 package ru.student.detected.educator.ui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -15,9 +17,10 @@ import androidx.navigation.Navigation;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import ru.student.detected.educator.ui.views.LocationDialog;
 import ru.student.detected.educator.ui.views.ToggleRadioButton;
-import ru.student.detected.page1.R;
 import ru.student.detected.educator.viewmodel.ToggleRadioBtnViewModel;
+import ru.student.detected.page1.R;
 import ru.student.detected.page1.databinding.FragmentTestsBinding;
 
 public class TestsFragment extends Fragment {
@@ -33,7 +36,30 @@ public class TestsFragment extends Fragment {
         binding.setLifecycleOwner(getViewLifecycleOwner());
         binding.setViewModel(btnViewModel);
         btnViewModel.setButtonWork();
+        boolean isEntryTestPassed = requireContext().getSharedPreferences("EntryTestPassed", Context.MODE_PRIVATE)
+                .getBoolean("rlyEntryTestPassed", false);
+        if (isEntryTestPassed) {
+            if(requireContext().getSharedPreferences("Dialogs", Context.MODE_PRIVATE)
+                    .getBoolean("Dialog2", false)) {
+                LocationDialog locationDialog = new LocationDialog(requireContext());
+                locationDialog.show();
+                requireContext().getSharedPreferences("Dialogs", Context.MODE_PRIVATE)
+                        .edit().putBoolean("Dialog2", true).apply();
+            }
+            unlockBtn(buttons, selectors, 2, R.drawable.entry_test_btn, R.drawable.selected);
+
+        }
         return binding.getRoot();
+    }
+
+    private void unlockBtn(ArrayList<ToggleRadioButton> buttons, ArrayList<ImageView> selectors, int position,
+                           int btnDrawable, int slDrawable) {
+        int index = position - 1;
+        if(buttons.get(index)!= null && selectors.get(index)!=null) {
+            buttons.get(index).setBackground(ContextCompat.getDrawable(requireContext(), btnDrawable));
+            selectors.get(index).setImageResource(slDrawable);
+            selectors.get(index).setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.action_tests_to_test2Fragment));
+        }
     }
 
     @Override

@@ -1,10 +1,13 @@
 package ru.student.detected.educator.ui.adapters;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -49,7 +52,13 @@ public class TheoryViewAdapter extends RecyclerView.Adapter<TheoryViewAdapter.Th
     @Override
     public void onBindViewHolder(@NonNull TheoryViewAdapter.TheoryViewHolder holder, int position) {
         holder.binding.description.setText(data.get(position).getTheoryDescription());
+        SharedPreferences preferences = holder.itemView.getContext().getSharedPreferences("theory", Context.MODE_PRIVATE);
         if (data.get(position).isChecked()) {
+            preferences.edit().putBoolean(data.get(position).getName(), true).apply();
+        }
+        boolean isChecked = preferences.getBoolean(data.get(position).getName(), false);
+        if(isChecked) {
+            data.get(position).setChecked(true);
             holder.binding.bookmark.setImageDrawable(ContextCompat.getDrawable(holder.itemView.getContext(),
                     R.drawable.bookmark_checked));
         }
