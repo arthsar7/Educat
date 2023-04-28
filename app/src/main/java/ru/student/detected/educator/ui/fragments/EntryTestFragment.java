@@ -55,7 +55,6 @@ public class EntryTestFragment extends Fragment {
         mViewModel.getPoints().observe(getViewLifecycleOwner(), points -> {
             binding.points.setText(String.valueOf(points));
         });
-        checkIfTestPassed();
 
 
         return binding.getRoot();
@@ -81,6 +80,7 @@ public class EntryTestFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        checkIfTestPassed();
 
         if(!requireContext().getSharedPreferences("EntryTestPassed",Context.MODE_PRIVATE)
                 .getBoolean("EntryTestPassed", false)){
@@ -187,8 +187,8 @@ public class EntryTestFragment extends Fragment {
         builder.setTitle("Тест завершен");
         builder.setMessage("Количество баллов: " + mViewModel.getPoints().getValue());
         builder.setButton(DialogInterface.BUTTON_NEUTRAL,"Продолжить", (dialog, which) -> {
-            Navigation.findNavController(requireView()).navigate(R.id.action_entryTestFragment_to_tests);
             builder.dismiss();
+            Navigation.findNavController(requireView()).navigate(R.id.action_entryTestFragment_to_tests);
         });
         builder.show();
     }
