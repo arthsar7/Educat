@@ -39,7 +39,7 @@ public class TestsFragment extends Fragment {
         boolean isEntryTestPassed = requireContext().getSharedPreferences("EntryTestPassed", Context.MODE_PRIVATE)
                 .getBoolean("rlyEntryTestPassed", false);
         if (isEntryTestPassed) {
-            if(requireContext().getSharedPreferences("Dialogs", Context.MODE_PRIVATE)
+            if(!requireContext().getSharedPreferences("Dialogs", Context.MODE_PRIVATE)
                     .getBoolean("Dialog2", false)) {
                 LocationDialog locationDialog = new LocationDialog(requireContext());
                 locationDialog.show();

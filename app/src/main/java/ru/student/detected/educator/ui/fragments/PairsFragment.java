@@ -165,8 +165,10 @@ public class PairsFragment extends Fragment implements PairsAdapter.ClickListene
             }
             else{
                 dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Завершить", (dialogInterface, i) -> {
-                    SharedPreferences sharedPreferences = requireContext().getSharedPreferences("EntryTestPassed", Context.MODE_PRIVATE);
+                    SharedPreferences sharedPreferences = requireContext()
+                            .getSharedPreferences("EntryTestPassed", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("rlyEntryTestPassed", true);
                     editor.putBoolean("EntryTestPassed", true);
                     editor.apply();
                     dialog.dismiss();

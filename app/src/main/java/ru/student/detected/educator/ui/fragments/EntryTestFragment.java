@@ -69,7 +69,6 @@ public class EntryTestFragment extends Fragment {
             dialog.setButton(DialogInterface.BUTTON_POSITIVE, "Начать заново", (dialog1, which) -> {
                 mViewModel.setPoints(0);
                 mViewModel.setSteps(0);
-                sharedPreferences.edit().putBoolean("rlyEntryTestPassed", true).apply();
                 sharedPreferences.edit().putBoolean("EntryTestPassed", false).apply();
                 dialog1.dismiss();
                 showEntryTestDialog(qViewModel);
@@ -179,9 +178,11 @@ public class EntryTestFragment extends Fragment {
     private void stopTest() {
         AlertDialog builder = new AlertDialog.Builder(requireContext()).create();
         builder.setCanceledOnTouchOutside(false);
-        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("EntryTestPassed", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = requireContext()
+                .getSharedPreferences("EntryTestPassed", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("EntryTestPassed", true);
+        editor.putBoolean("rlyEntryTestPassed", true);
         editor.apply();
         builder.setTitle("Тест завершен");
         builder.setMessage("Количество баллов: " + mViewModel.getPoints().getValue());

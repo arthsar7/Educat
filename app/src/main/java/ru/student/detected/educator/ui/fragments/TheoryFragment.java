@@ -58,11 +58,6 @@ public class TheoryFragment extends Fragment implements OnTheoryClickListener {
             ((TheoryViewAdapter)
                     Objects.requireNonNull(binding.itemList.getAdapter()))
                     .updateData(value);
-            value.forEach(theory -> {
-                theory.setChecked(requireContext().
-                        getSharedPreferences("theory", Context.MODE_PRIVATE)
-                        .getBoolean(theory.getName(), false));
-            });
             progressCheck(value);
         });
         binding.theory.setOnLongClickListener(v -> {
@@ -72,18 +67,23 @@ public class TheoryFragment extends Fragment implements OnTheoryClickListener {
     }
 
     private void progressCheck(List<Theory> value) {
+
         int c = (int) value.stream().filter(Theory::isChecked).count();
         int progress = (int)((float) c/ value.size()*100);
         requireContext().getSharedPreferences("theoryProgress", Context.MODE_PRIVATE)
                 .edit().putInt("theoryProgress", progress).apply();
-        if(progress!=0)
-            binding.numProgress.setText(MessageFormat.format("{0}%", progress));
-        setProgressColor(progress);
-        if(progress == 100) {
+        int currentProgress = requireContext()
+                .getSharedPreferences("theoryProgress", Context.MODE_PRIVATE)
+                .getInt("theoryProgress", 0);
+        binding.numProgress.setVisibility(currentProgress == 0 ?
+                View.GONE : View.VISIBLE);  //Пофиксить
+        binding.numProgress.setText( MessageFormat.format("{0}%", currentProgress));
+        setProgressColor(currentProgress);
+        if(currentProgress == 100) {
             SharedPreferences preferences = requireContext().getSharedPreferences("TheoryIsChecked", Context.MODE_PRIVATE);
-            boolean isChecked = preferences.getBoolean("isChecked", false);
+            boolean isChecked = preferences.getBoolean("TheoryIsChecked", false);
             if(!isChecked) {
-                preferences.edit().putBoolean("isChecked", true).apply();
+                preferences.edit().putBoolean("TheoryIsChecked", true).apply();
                 showDialogOneTime();
             }
         }
