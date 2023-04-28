@@ -46,7 +46,7 @@ public class TestsFragment extends Fragment {
                 requireContext().getSharedPreferences("Dialogs", Context.MODE_PRIVATE)
                         .edit().putBoolean("Dialog2", true).apply();
             }
-            unlockBtn(buttons, selectors, 2, R.drawable.entry_test_btn, R.drawable.selected);
+            unlockBtn(buttons, selectors, 2, R.drawable.test2_btn, R.drawable.selected2);
 
         }
         return binding.getRoot();
