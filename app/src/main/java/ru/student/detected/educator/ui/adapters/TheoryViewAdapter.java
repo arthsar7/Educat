@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ import ru.student.detected.page1.R;
 import ru.student.detected.page1.databinding.TheoryItemBinding;
 
 
-public class TheoryViewAdapter extends RecyclerView.Adapter<TheoryViewAdapter.TheoryViewHolder>{
+public abstract class TheoryViewAdapter extends RecyclerView.Adapter<TheoryViewAdapter.TheoryViewHolder>{
     private List<Theory> data;
     private final OnTheoryClickListener listener;
     TheoryItemBinding binding;
@@ -62,12 +63,16 @@ public class TheoryViewAdapter extends RecyclerView.Adapter<TheoryViewAdapter.Th
             holder.binding.bookmark.setImageDrawable(ContextCompat.getDrawable(holder.itemView.getContext(),
                     R.drawable.bookmark_checked));
         }
+        holder.binding.playVideo.setOnClickListener(v->playSelected(position));
         holder.binding.theoryName.setText(data.get(position).getName());
         holder.binding.img.setImageDrawable(ContextCompat.
                 getDrawable(holder.itemView.getContext(), data.get(position).getImg()));
         holder.binding.item.setImageDrawable(ContextCompat.
                 getDrawable(holder.itemView.getContext(), data.get(position).getItemImg()));
     }
+
+    public abstract void playSelected(int position);
+
     @Override
     public int getItemCount() {
         return data.size();

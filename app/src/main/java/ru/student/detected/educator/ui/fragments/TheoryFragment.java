@@ -21,7 +21,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 import ru.student.detected.educator.data.models.Theory;
 import ru.student.detected.educator.ui.adapters.TheoryViewAdapter;
@@ -52,7 +51,13 @@ public class TheoryFragment extends Fragment implements OnTheoryClickListener {
         binding.profile.setOnClickListener(v -> Navigation.findNavController(view)
                 .navigate(R.id.action_theoryFragment_to_userProfileFragment));
         binding.itemList.setLayoutManager(new LinearLayoutManager(getContext()));
-        TheoryViewAdapter theoryViewAdapter = new TheoryViewAdapter(this);
+        TheoryViewAdapter theoryViewAdapter = new TheoryViewAdapter(this) {
+            @Override
+            public void playSelected(int position) {
+                theoryViewModel.setPosition(position);
+                Navigation.findNavController(requireView()).navigate(R.id.action_theoryFragment_to_videoLessonsFragment);
+            }
+        };
         binding.itemList.setAdapter(theoryViewAdapter);
         theoryViewModel.getTheories().observe(getViewLifecycleOwner(), (value)-> {
             ((TheoryViewAdapter)
@@ -65,7 +70,6 @@ public class TheoryFragment extends Fragment implements OnTheoryClickListener {
             return true;
         });
     }
-
     private void progressCheck(List<Theory> value) {
 
         int c = (int) value.stream().filter(Theory::isChecked).count();

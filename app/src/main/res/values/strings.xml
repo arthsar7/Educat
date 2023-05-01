@@ -45,6 +45,7 @@
     <string name="tap_the_pairs">Tap the pairs</string>
     <string name="question">Question</string>
     <string name="award">ДОБЫЧА</string>
+    <string name="next">продолжить</string>
     <string-array name="theory_descriptions">
         <item>Read how to use Present Simple form</item>
         <item>Read how to use Present Continuous form</item>

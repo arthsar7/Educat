@@ -15,6 +15,7 @@ import ru.student.detected.educator.data.repositories.TheoryRepository;
 
 public class TheoryViewModel extends AndroidViewModel {
     private final LiveData<List<Theory>> theories;
+    private int position;
     private final MutableLiveData<Theory> selectedTheory = new MutableLiveData<>();
     public TheoryViewModel(@NonNull Application application) {
         super(application);
@@ -33,5 +34,13 @@ public class TheoryViewModel extends AndroidViewModel {
     }
     public void addTheories(Theory theories) {
         //TODO: добавить в базу данных
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

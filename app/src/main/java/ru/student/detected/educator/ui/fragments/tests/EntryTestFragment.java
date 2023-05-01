@@ -1,4 +1,4 @@
-package ru.student.detected.educator.ui.fragments;
+package ru.student.detected.educator.ui.fragments.tests;
 
 import android.app.AlertDialog;
 import android.content.Context;

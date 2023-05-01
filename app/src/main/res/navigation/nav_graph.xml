@@ -72,6 +72,9 @@
         <action
             android:id="@+id/action_theoryFragment_to_pastSimpleFragment"
             app:destination="@id/pastSimpleFragment" />
+        <action
+            android:id="@+id/action_theoryFragment_to_videoLessonsFragment"
+            app:destination="@id/videoLessonsFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -83,7 +86,7 @@
     </fragment>
     <fragment
         android:id="@+id/entryTestFragment"
-        android:name="ru.student.detected.educator.ui.fragments.EntryTestFragment"
+        android:name="ru.student.detected.educator.ui.fragments.tests.EntryTestFragment"
         android:label="fragment_entry_test"
         tools:layout="@layout/fragment_entry_test" >
         <action
@@ -138,7 +141,7 @@
     </fragment>
     <fragment
         android:id="@+id/pairsFragment"
-        android:name="ru.student.detected.educator.ui.fragments.PairsFragment"
+        android:name="ru.student.detected.educator.ui.fragments.tests.PairsFragment"
         android:label="PairsFragment" >
         <action
             android:id="@+id/action_pairsFragment_self"
@@ -152,7 +155,7 @@
     </fragment>
     <fragment
         android:id="@+id/test2Fragment"
-        android:name="ru.student.detected.educator.ui.fragments.Test2Fragment"
+        android:name="ru.student.detected.educator.ui.fragments.tests.Test2Fragment"
         android:label="Test2Fragment" >
         <action
             android:id="@+id/action_test2Fragment_to_tests"
@@ -161,4 +164,8 @@
             android:id="@+id/action_test2Fragment_self"
             app:destination="@id/test2Fragment" />
     </fragment>
+    <fragment
+        android:id="@+id/videoLessonsFragment"
+        android:name="ru.student.detected.educator.ui.fragments.VideoLessonsFragment"
+        android:label="VideoLessonsFragment" />
 </navigation>
