@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="video_phrases" >
-        <item>You talking to me?,Fuck you,Lmao</item>
-        <item>You talking to me?,Fuck you,Lmao</item>
+        <item>(Are)you talking to me?;(Are)you walking with me?;(Are)you mocking me?</item>
+        <item>(Do)you know who they are?;(Do)you know how far we are?;(Do)you know who we are?</item>
+        <item> You\'re not going there, are you?;You\'re not from here, are you?;You\'re in front of me, are you?</item>
+        <item>If I see one, I shall inform you immediately; If I see one, I\'ll should inform you instantly;If I lay my eyes on one, I\'ll notify you immediately</item>
+
     </string-array>
     <integer-array name="video_right_phrases" >
         <item>0</item>
+        <item>2</item>
+        <item>1</item>
         <item>0</item>
+    </integer-array>
+
+    <string-array name="video_answers">
+        <item>Yes, you can;No, you just need to believe;How was your day?</item>
+    </string-array>
+    <integer-array name="video_right_answers">
+        <item>1</item>
     </integer-array>
 </resources>

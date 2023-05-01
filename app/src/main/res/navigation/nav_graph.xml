@@ -163,9 +163,16 @@
         <action
             android:id="@+id/action_test2Fragment_self"
             app:destination="@id/test2Fragment" />
+        <action
+            android:id="@+id/action_test2Fragment_to_dialog2Fragment"
+            app:destination="@id/dialog2Fragment" />
     </fragment>
     <fragment
         android:id="@+id/videoLessonsFragment"
         android:name="ru.student.detected.educator.ui.fragments.VideoLessonsFragment"
         android:label="VideoLessonsFragment" />
+    <fragment
+        android:id="@+id/dialog2Fragment"
+        android:name="ru.student.detected.educator.ui.fragments.tests.Dialog2Fragment"
+        android:label="Dialog2Fragment" />
 </navigation>

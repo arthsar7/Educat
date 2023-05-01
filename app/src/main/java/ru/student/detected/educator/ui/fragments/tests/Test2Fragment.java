@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,7 +37,7 @@ public class Test2Fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_test2, container, false);
         qViewModel = new ViewModelProvider(requireActivity()).get(VideoQuestionViewModel.class);
-        position=0;
+        position = 0;
         return binding.getRoot();
     }
 
@@ -56,6 +57,7 @@ public class Test2Fragment extends Fragment {
         binding.videoView.seekTo(1);
         binding.videoView.setOnPreparedListener(mp -> new Handler().postDelayed(() -> {
             binding.frame.setVisibility(View.VISIBLE);
+
         }, 100));
         binding.videoView.start();
     }
@@ -72,14 +74,16 @@ public class Test2Fragment extends Fragment {
             buttons.get(i).setOnClickListener(v -> {
                 if (i == right)
                     Toast.makeText(requireContext(), "Right", Toast.LENGTH_SHORT).show();
-                if(position < videoQuestions.size() - 1) {
+                if(position < videoQuestions.size()-1) {
                     position++;
                     initVideo();
                     playVideo();
                 }
+                else {
+                    Navigation.findNavController(requireView()).navigate(R.id.action_test2Fragment_to_dialog2Fragment);
+                }
             });
         });
-
     }
 
     @Override
