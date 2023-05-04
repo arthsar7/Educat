@@ -36,6 +36,7 @@ public class TestsFragment extends Fragment {
         binding.setLifecycleOwner(getViewLifecycleOwner());
         binding.setViewModel(btnViewModel);
         btnViewModel.setButtonWork();
+        binding.card1.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.action_tests_to_cardFragment));
         boolean isEntryTestPassed = requireContext().getSharedPreferences("EntryTestPassed", Context.MODE_PRIVATE)
                 .getBoolean("rlyEntryTestPassed", false);
         if (isEntryTestPassed) {

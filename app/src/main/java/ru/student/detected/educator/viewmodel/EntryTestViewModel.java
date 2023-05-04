@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 public class EntryTestViewModel extends AndroidViewModel {
-    public static final int ENTRY_TEST_STAGES = 7;
+    public static final int ENTRY_TEST_STAGES = 5;
     private final MutableLiveData<Integer> difficulty = new MutableLiveData<>();
     private final MutableLiveData<Integer> points = new MutableLiveData<>();
     public final MutableLiveData<Integer> steps = new MutableLiveData<>();

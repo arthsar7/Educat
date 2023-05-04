@@ -30,6 +30,7 @@ public class Dialog2Fragment extends Fragment {
     private FragmentDialog2Binding binding;
     private VideoDialogViewModel qViewModel;
     private int position;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

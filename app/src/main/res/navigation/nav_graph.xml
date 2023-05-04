@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_tests_to_test2Fragment"
             app:destination="@id/test2Fragment" />
+        <action
+            android:id="@+id/action_tests_to_cardFragment"
+            app:destination="@id/cardFragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
@@ -175,4 +178,8 @@
         android:id="@+id/dialog2Fragment"
         android:name="ru.student.detected.educator.ui.fragments.tests.Dialog2Fragment"
         android:label="Dialog2Fragment" />
+    <fragment
+        android:id="@+id/cardFragment"
+        android:name="ru.student.detected.educator.ui.fragments.CardFragment"
+        android:label="CardFragment" />
 </navigation>
