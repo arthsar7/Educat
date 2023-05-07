@@ -3,6 +3,7 @@ package ru.student.detected.educator.ui.fragments.tests;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,7 +72,7 @@ public class Dialog2Fragment extends Fragment {
         binding.videoView.setMediaController(mediaController);
         mediaController.setAnchorView(binding.videoView);
         binding.videoView.seekTo(1);
-        binding.videoView.setOnPreparedListener(mp -> new Handler().postDelayed(() ->
+        binding.videoView.setOnPreparedListener(mp -> new Handler(Looper.getMainLooper()).postDelayed(() ->
                 binding.frame.setVisibility(View.VISIBLE), 100));
         binding.videoView.start();
     }

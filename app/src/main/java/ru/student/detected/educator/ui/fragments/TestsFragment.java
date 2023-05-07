@@ -12,19 +12,46 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import ru.student.detected.educator.data.models.User;
 import ru.student.detected.educator.ui.views.LocationDialog;
 import ru.student.detected.educator.ui.views.ToggleRadioButton;
 import ru.student.detected.educator.viewmodel.ToggleRadioBtnViewModel;
+import ru.student.detected.educator.viewmodel.UserViewModel;
 import ru.student.detected.page1.R;
 import ru.student.detected.page1.databinding.FragmentTestsBinding;
 
 public class TestsFragment extends Fragment {
     private FragmentTestsBinding binding;
+    private FirebaseFirestore db;
+    private UserViewModel userViewModel;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
+        db = FirebaseFirestore.getInstance();
+        FirebaseUser dbUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (dbUser != null) {
+            DocumentReference reference = db.collection("User").document(dbUser.getUid());
+            reference.get().addOnSuccessListener(documentSnapshot -> {
+                if (documentSnapshot.exists()) {
+                    User user = documentSnapshot.toObject(User.class);
+                    userViewModel.setUser(user);
+                }
+            });
+        }
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,

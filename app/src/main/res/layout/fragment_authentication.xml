@@ -64,6 +64,21 @@
             android:textAllCaps="false"
             android:textColor="@color/white" />
 
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="65dp"
+            android:layout_height="111dp"
+            android:layout_below="@+id/passwordbar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="133dp"
+            android:layout_marginTop="133dp"
+            android:layout_marginEnd="133dp"
+            android:layout_marginBottom="10dp" />
+
         <TextView
             android:id="@+id/forgot_password_"
             android:layout_width="wrap_content"

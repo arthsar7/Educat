@@ -48,7 +48,7 @@ public class PairsAdapter extends RecyclerView.Adapter<PairsAdapter.PairsViewHol
             super(itemView);
             View item = itemView.findViewById(R.id.item);
             TextView text = itemView.findViewById(R.id.theory_name);
-            item.setOnClickListener(v -> listener.onItemClick(v, getAdapterPosition(), text));
+            item.setOnClickListener(v -> listener.onItemClick(v, getBindingAdapterPosition(), text));
         }
 
     }

@@ -1,21 +1,28 @@
 package ru.student.detected.educator.data.models;
 
+import android.net.Uri;
+
 public class User {
-    private String name;
+    private String firstName;
     private String email;
-    private String password;
-    public User(String name, String email, String password) {
-        this.name = name;
+    private String secondName;
+    private Uri photoUrl;
+    public User(String firstName, String email, String secondName, Uri photoUrl) {
+        this.firstName = firstName;
         this.email = email;
-        this.password = password;
+        this.secondName = secondName;
+        this.photoUrl = photoUrl;
+    }
+    public User() {
+
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getEmail() {
@@ -26,11 +33,19 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSecondName() {
+        return secondName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public Uri getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(Uri photoUrl) {
+        this.photoUrl = photoUrl;
     }
 }

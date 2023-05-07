@@ -85,7 +85,7 @@ public abstract class TheoryViewAdapter extends RecyclerView.Adapter<TheoryViewA
             if (binding != null) {
                 binding.item.setOnClickListener(v -> {
                     if(listener != null) {
-                        int position = getAdapterPosition();
+                        int position = getBindingAdapterPosition();
                         listener.onTheoryClick(position, binding.bookmark);
                     }
                 });

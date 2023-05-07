@@ -11,6 +11,7 @@
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/register_back" />
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="270dp"
@@ -187,11 +188,22 @@
                 android:hint="@string/prompt_email"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
-
         </RelativeLayout>
 
-
-
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/alreadyHaveAccBtn"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="150dp"
+            android:layout_marginBottom="0dp" />
 
     </RelativeLayout>
 </layout>
