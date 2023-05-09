@@ -5,7 +5,6 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
@@ -23,12 +22,12 @@ public class UserViewModel extends AndroidViewModel {
         return userMutableLiveData;
     }
     public void setUserName(String name) {
-        // Both updates LiveData but does not update UI
         user.setFirstName(name);
-        // userMutableLiveData.getValue().setName("Updated Name");
-
-        // This one Updates UI
-        //  userMutableLiveData.setValue(userMutableLiveData.getValue());
+    }
+    public void setUserImage(String uri){
+        user.setPhotoUrl(uri);
+        if (userMutableLiveData.getValue() != null)
+            userMutableLiveData.getValue().setPhotoUrl(uri);
     }
 
     public void setUser(User user) {

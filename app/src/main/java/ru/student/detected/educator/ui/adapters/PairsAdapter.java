@@ -12,7 +12,6 @@ import java.util.List;
 
 import ru.student.detected.page1.R;
 import ru.student.detected.page1.databinding.PairsItemBinding;
-import ru.student.detected.page1.databinding.TheoryItemBinding;
 
 public class PairsAdapter extends RecyclerView.Adapter<PairsAdapter.PairsViewHolder> {
     private List<String> data;

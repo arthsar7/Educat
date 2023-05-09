@@ -26,6 +26,7 @@ import java.util.Arrays;
 import ru.student.detected.educator.data.models.User;
 import ru.student.detected.educator.ui.views.LocationDialog;
 import ru.student.detected.educator.ui.views.ToggleRadioButton;
+import ru.student.detected.educator.viewmodel.DictionaryViewModel;
 import ru.student.detected.educator.viewmodel.ToggleRadioBtnViewModel;
 import ru.student.detected.educator.viewmodel.UserViewModel;
 import ru.student.detected.page1.R;
@@ -41,6 +42,11 @@ public class TestsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
         db = FirebaseFirestore.getInstance();
+        DictionaryViewModel dictionaryViewModel = new ViewModelProvider(requireActivity()).get(DictionaryViewModel.class);
+        uploadUserData();
+    }
+
+    private void uploadUserData() {
         FirebaseUser dbUser = FirebaseAuth.getInstance().getCurrentUser();
         if (dbUser != null) {
             DocumentReference reference = db.collection("User").document(dbUser.getUid());
@@ -57,13 +63,16 @@ public class TestsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_tests, container, false);
+        binding.dictionary.setOnClickListener(v ->
+                Navigation.findNavController(v).navigate(R.id.action_tests_to_dictionaryFragment));
         ArrayList<ToggleRadioButton> buttons = new ArrayList<>(Arrays.asList(binding.entryTestBtn, binding.test2Btn));
         ArrayList<ImageView> selectors = new ArrayList<>(Arrays.asList(binding.entryTestSelector, binding.selector2));
         ToggleRadioBtnViewModel btnViewModel = new ToggleRadioBtnViewModel(buttons, selectors);
         binding.setLifecycleOwner(getViewLifecycleOwner());
         binding.setViewModel(btnViewModel);
         btnViewModel.setButtonWork();
-        binding.card1.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.action_tests_to_cardFragment));
+        binding.card1.setOnClickListener(v ->
+                Navigation.findNavController(v).navigate(R.id.action_tests_to_cardFragment));
         boolean isEntryTestPassed = requireContext().getSharedPreferences("EntryTestPassed", Context.MODE_PRIVATE)
                 .getBoolean("rlyEntryTestPassed", false);
         if (isEntryTestPassed) {

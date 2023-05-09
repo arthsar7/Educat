@@ -18,7 +18,6 @@ import java.util.concurrent.atomic.AtomicReference;
 import ru.student.detected.educator.viewmodel.TheoryViewModel;
 import ru.student.detected.page1.R;
 import ru.student.detected.page1.databinding.FragmentPresentPerfectBinding;
-import ru.student.detected.page1.databinding.FragmentPresentSimpleBinding;
 
 public class PresentPerfectFragment extends Fragment {
     private TheoryViewModel theoryViewModel;
@@ -51,8 +50,7 @@ public class PresentPerfectFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.back.setOnClickListener(v-> {
-            Navigation.findNavController(view).
-                    navigate(R.id.action_presentPerfectFragment_to_theoryFragment);
+            Navigation.findNavController(v).popBackStack();
         });
     }
 }

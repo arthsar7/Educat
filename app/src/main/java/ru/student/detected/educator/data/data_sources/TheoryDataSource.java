@@ -2,7 +2,6 @@ package ru.student.detected.educator.data.data_sources;
 
 import android.app.Application;
 import android.content.res.TypedArray;
-import android.media.MediaPlayer;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import ru.student.detected.educator.data.models.Theory;
 import ru.student.detected.page1.R;
 

@@ -14,9 +14,14 @@ public class EntryTestViewModel extends AndroidViewModel {
     public final MutableLiveData<Integer> steps = new MutableLiveData<>();
     public EntryTestViewModel(@NonNull Application application) {
         super(application);
+        reset();
+    }
+
+    public void reset() {
         points.setValue(0);
         steps.setValue(0);
     }
+
     public void setDifficulty(int difficulty) {
         this.difficulty.setValue(difficulty);
     }

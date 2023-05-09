@@ -17,7 +17,7 @@ import ru.student.detected.educator.data.models.Pair;
 import ru.student.detected.educator.data.repositories.PairRepository;
 
 public class PairViewModel extends AndroidViewModel {
-        private final MutableLiveData<List<Pair>> pairList = new MutableLiveData<>();
+    private final MutableLiveData<List<Pair>> pairList = new MutableLiveData<>();
     private PairRepository pairRepository;
     private static final List<Pair> ALL_PAIRS = new ArrayList<>();
     public PairViewModel(@NonNull Application application) {
@@ -51,6 +51,14 @@ public class PairViewModel extends AndroidViewModel {
     }
     public LiveData<List<Pair>> getPairs() {
         return pairList;
+    }
+    public int getDifficultyByWords(String engWord, String rusWord) {
+        for (Pair pair : ALL_PAIRS) {
+            if (pair.getEngWord().equals(engWord) && pair.getRusWord().equals(rusWord)) {
+                return pair.getDifficulty();
+            }
+        }
+        return 0;
     }
 
 }

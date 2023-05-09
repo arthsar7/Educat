@@ -45,8 +45,16 @@
     <string name="tap_the_pairs">Tap the pairs</string>
     <string name="question">Question</string>
     <string name="award">ДОБЫЧА</string>
-    <string name="next">продолжить</string>
+    <string name="go">продолжить</string>
     <string name="remember">ЗАПОМНИЛ</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="id">Id</string>
+    <string name="difficulty">Difficulty:</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="next">next</string>
+    <string name="word_cards">WORDS CARDS</string>
     <string-array name="theory_descriptions">
         <item>Read how to use Present Simple form</item>
         <item>Read how to use Present Continuous form</item>
@@ -89,7 +97,6 @@
         <item>@drawable/present_perfect_continuous</item>
         <item>@drawable/past_simple</item>
     </integer-array>
-
     <string-array name="rus_words">
         <item>персик</item>
         <item>яблоко</item>
@@ -165,62 +172,77 @@
         <item>apple</item>
         <item>watermelon</item>
         <item>house</item>
+
         <item>nationality</item>
         <item>electricity</item>
         <item>industry</item>
         <item>confidence</item>
+
         <item>generation</item>
         <item>offspring</item>
         <item>instance</item>
         <item>consequence</item>
+
         <item>book</item>
         <item>pen</item>
         <item>computer</item>
         <item>dog</item>
+
         <item>ocean</item>
         <item>mountain</item>
         <item>valley</item>
         <item>island</item>
+
         <item>ambition</item>
         <item>perseverance</item>
         <item>determination</item>
         <item>resilience</item>
+
         <item>dream</item>
         <item>aspiration</item>
         <item>desire</item>
         <item>wish</item>
+
         <item>challenge</item>
         <item>obstacle</item>
         <item>difficulty</item>
         <item>hardship</item>
+
         <item>perception</item>
         <item>perspective</item>
         <item>viewpoint</item>
         <item>outlook</item>
+
         <item>happiness</item>
         <item>joy</item>
         <item>love</item>
         <item>satisfaction</item>
+
         <item>health</item>
         <item>welfare</item>
         <item>well-being</item>
         <item>fitness</item>
+
         <item>knowledge</item>
         <item>wisdom</item>
         <item>understanding</item>
         <item>insight</item>
+
         <item>food</item>
         <item>cuisine</item>
         <item>dish</item>
         <item>meal</item>
+
         <item>travel</item>
         <item>journey</item>
         <item>adventure</item>
         <item>expedition</item>
+
         <item>technology</item>
         <item>innovation</item>
         <item>engineering</item>
         <item>invention</item>
+
         <item>fear</item>
         <item>dread</item>
         <item>anxiety</item>

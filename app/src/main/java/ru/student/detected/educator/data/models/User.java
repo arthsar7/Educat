@@ -1,17 +1,17 @@
 package ru.student.detected.educator.data.models;
 
-import android.net.Uri;
-
 public class User {
     private String firstName;
     private String email;
     private String secondName;
-    private Uri photoUrl;
-    public User(String firstName, String email, String secondName, Uri photoUrl) {
+    private String photoUrl;
+    private String ID;
+    public User(String firstName, String email, String secondName, String photoUrl, String ID) {
         this.firstName = firstName;
         this.email = email;
         this.secondName = secondName;
         this.photoUrl = photoUrl;
+        this.ID = ID;
     }
     public User() {
 
@@ -41,11 +41,19 @@ public class User {
         this.secondName = secondName;
     }
 
-    public Uri getPhotoUrl() {
+    public String getPhotoUrl() {
         return photoUrl;
     }
 
-    public void setPhotoUrl(Uri photoUrl) {
+    public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 }

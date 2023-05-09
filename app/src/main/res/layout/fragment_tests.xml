@@ -22,13 +22,16 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="16dp"
-                    android:src="@drawable/educatlogo"
+                <Button
+                    android:id="@+id/dictionary"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/dictionary"
+                    android:textColor="@color/white"
+                    android:background="@drawable/item_blue"
                     android:contentDescription="logo"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,6 +83,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
+
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:contentDescription="@string/userProfileButton"
                     android:id="@+id/profile"
@@ -183,6 +187,26 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView3"
                         android:src="@drawable/cards" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
+                        android:shadowColor="@color/white"
+                        android:shadowDx="0.3"
+                        android:shadowDy="0.3"
+                        android:shadowRadius="6"
+                        android:text="@string/word_cards"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                        app:layout_constraintEnd_toEndOf="@+id/card1"
+                        app:layout_constraintHorizontal_bias="0.506"
+                        app:layout_constraintStart_toStartOf="@+id/card1"
+                        app:layout_constraintTop_toTopOf="@+id/imageView3"
+                        app:layout_constraintVertical_bias="1.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <ru.student.detected.educator.ui.views.ToggleRadioButton

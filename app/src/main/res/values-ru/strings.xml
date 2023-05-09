@@ -15,6 +15,7 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome!"</string>
+    <string name="next">Следующее</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
@@ -27,6 +28,7 @@
     <string name="userId">\@userId</string>
     <string name="friends_list">Список друзей</string>
     <string name="theory">Теория</string>
+    <string name="difficulty">Сложность:</string>
     <string-array name="theory_descriptions">
         <item>Прочитайте про использование the Present Simple</item>
         <item>Прочитайте, как использовать Present Continuous</item>
@@ -63,5 +65,10 @@
     <string name="register_btn">Создать аккаунт</string>
     <string name="name_surname">Имя Фамилия</string>
     <string name="tap_the_pairs">Соотнеси слова</string>
-    <string name="next">продолжить</string>
+    <string name="go">продолжить</string>
+    <string name="dictionary">Словарь</string>
+    <string name="easy">Легкая</string>
+    <string name="medium">Средняя</string>
+    <string name="hard">Сложная</string>
+    <string name="word_cards">КАРТЫ СЛОВ</string>
 </resources>

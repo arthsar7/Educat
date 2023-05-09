@@ -3,6 +3,7 @@ package ru.student.detected.educator.viewmodel;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
+import android.annotation.SuppressLint;
 import android.widget.ImageView;
 
 import androidx.lifecycle.MutableLiveData;
@@ -25,11 +26,13 @@ public class ToggleRadioBtnViewModel extends ViewModel {
         data.setValue(buttons);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     public void setButtonWork(){
-        IntStream.range(0, buttons.size()).forEach(index ->
-                Objects.requireNonNull(data.getValue()).get(index).setOnCheckedChangeListener((buttonView, isChecked) ->
-                        selectors.get(index).setVisibility(isChecked ? VISIBLE : INVISIBLE)
-        ));
+        IntStream.range(0, buttons.size()).forEach(index -> {
+            Objects.requireNonNull(data.getValue()).get(index).setOnCheckedChangeListener((buttonView, isChecked) ->
+                    selectors.get(index).setVisibility(isChecked ? VISIBLE : INVISIBLE)
+            );
+        });
     }
     public ArrayList<ToggleRadioButton> getButtons() {
         return buttons;

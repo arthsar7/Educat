@@ -1,7 +1,5 @@
 package ru.student.detected.educator.data.models;
 
-import androidx.annotation.NonNull;
-
 import java.util.List;
 
 public class Question {

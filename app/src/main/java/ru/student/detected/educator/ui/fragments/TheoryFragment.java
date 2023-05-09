@@ -116,6 +116,7 @@ public class TheoryFragment extends Fragment implements OnTheoryClickListener {
     public void onTheoryClick(int position, View itemView) {
         theoryViewModel.getTheories().observe(getViewLifecycleOwner(), (value) -> {
             value.get(position).setChecked(true);
+            theoryViewModel.setSelectedTheory(value.get(position));
         });
         final int[] fragment_ids = {
             R.id.action_theoryFragment_to_selectedTheoryFragment,

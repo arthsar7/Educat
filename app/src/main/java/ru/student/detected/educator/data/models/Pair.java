@@ -1,18 +1,20 @@
 package ru.student.detected.educator.data.models;
 
-public class Pair {
+public class Pair implements Comparable<Pair> {
     private String engWord;
     private String rusWord;
     private int difficulty;
+
+    private boolean isFront;
 
     public Pair(String engWord, String rusWord, int difficulty) {
         this.engWord = engWord;
         this.rusWord = rusWord;
         this.difficulty = difficulty;
+        isFront = true;
     }
 
     public Pair() {
-
     }
 
     public String getEngWord() {
@@ -48,5 +50,18 @@ public class Pair {
                 ", rusWord='" + rusWord + '\'' +
                 ", difficulty=" + difficulty +
                 '}';
+    }
+
+    public boolean isFront() {
+        return isFront;
+    }
+
+    public void setFront(boolean front) {
+        isFront = front;
+    }
+
+    @Override
+    public int compareTo(Pair pair) {
+        return this.difficulty - pair.getDifficulty();
     }
 }

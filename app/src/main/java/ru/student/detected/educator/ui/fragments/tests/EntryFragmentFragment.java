@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -31,7 +32,7 @@ import ru.student.detected.educator.viewmodel.QuestionViewModel;
 import ru.student.detected.page1.R;
 import ru.student.detected.page1.databinding.FragmentEntryTestBinding;
 
-public class EntryTestFragment extends Fragment {
+public class EntryFragmentFragment extends Fragment{
 
     private EntryTestViewModel mViewModel;
     private QuestionViewModel qViewModel;
@@ -52,11 +53,17 @@ public class EntryTestFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_entry_test, container, false);
         mViewModel = new ViewModelProvider(requireActivity()).get(EntryTestViewModel.class);
         mViewModel.addStep();
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(),
+                new OnBackPressedCallback(true) {
+                    @Override
+                    public void handleOnBackPressed() {
+                        onBackPressed();
+                    }
+                }
+        );
         mViewModel.getPoints().observe(getViewLifecycleOwner(), points -> {
             binding.points.setText(String.valueOf(points));
         });
-
-
         return binding.getRoot();
     }
 
@@ -66,12 +73,12 @@ public class EntryTestFragment extends Fragment {
             AlertDialog dialog = new AlertDialog.Builder(requireContext()).create();
             dialog.setMessage("Вы прошли тест, желаете начать заново?");
             dialog.setButton(DialogInterface.BUTTON_POSITIVE, "Начать заново", (dialog1, which) -> {
-                mViewModel.setPoints(0);
-                mViewModel.setSteps(0);
+                mViewModel.reset();
                 sharedPreferences.edit().putBoolean("EntryTestPassed", false).apply();
                 dialog1.dismiss();
                 showEntryTestDialog(qViewModel);
             });
+            dialog.setOnKeyListener(this::handleBackDialog);
             dialog.show();
             dialog.setCanceledOnTouchOutside(false);
         }
@@ -129,14 +136,7 @@ public class EntryTestFragment extends Fragment {
                 }
             };
             dialog.show();
-            dialog.setOnKeyListener((dialogInterface, keycode, event) -> {
-                if (keycode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
-                    dialog.dismiss();
-                    Navigation.findNavController(requireView())
-                            .navigate(R.id.action_entryTestFragment_to_tests);
-                }
-                return true;
-            });
+            dialog.setOnKeyListener(this::handleBackDialog);
         }
         else{
             qViewModel.getAllQuestions().observe(getViewLifecycleOwner(), questions -> {
@@ -145,6 +145,15 @@ public class EntryTestFragment extends Fragment {
                 execute();
             });
         }
+    }
+
+    private boolean handleBackDialog(DialogInterface dialog, int keycode, KeyEvent event) {
+        if (keycode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
+            dialog.dismiss();
+            Navigation.findNavController(requireView())
+                    .navigate(R.id.action_entryTestFragment_to_tests);
+        }
+        return true;
     }
 
     private void execute() {
@@ -185,6 +194,8 @@ public class EntryTestFragment extends Fragment {
         editor.putBoolean("rlyEntryTestPassed", true);
         editor.apply();
         builder.setTitle("Тест завершен");
+        builder.setCanceledOnTouchOutside(false);
+        builder.setOnKeyListener((dialog, keyCode, event) -> true);
         builder.setMessage("Количество баллов: " + mViewModel.getPoints().getValue());
         builder.setButton(DialogInterface.BUTTON_NEUTRAL,"Продолжить", (dialog, which) -> {
             builder.dismiss();
@@ -196,7 +207,6 @@ public class EntryTestFragment extends Fragment {
     private void nextStage() {
         final int[] stages = {
           R.id.action_entryTestFragment_to_pairsFragment,
-                R.id.action_entryTestFragment_self,
         };
         final int stages_length = stages.length;
         final int i = (int) (Math.random() * stages_length);
@@ -215,5 +225,20 @@ public class EntryTestFragment extends Fragment {
             binding.varC.setText(String.format("c)%s", question.getVariants().get(2)));
         });
         return questionList.get(currentStep);
+    }
+
+    public void onBackPressed() {
+        AlertDialog dialog = new AlertDialog.Builder(requireContext())
+                .setMessage("Вы уверены, что хотите выйти?\nПрогресс будет утерян")
+                .setTitle("Выход")
+                .setPositiveButton("Да", (dialog1, which) -> {
+                    dialog1.dismiss();
+                    Navigation.findNavController(requireView()).navigate(R.id.action_entryTestFragment_to_tests);
+                    mViewModel.reset();
+                })
+                .setNegativeButton("Нет", (dialog2, which) -> dialog2.dismiss())
+                .create();
+        dialog.show();
+        dialog.setOnKeyListener((dialog1, keyCode, event) -> true);
     }
 }

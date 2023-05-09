@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -26,11 +27,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import ru.student.detected.educator.data.models.Pair;
 import ru.student.detected.educator.ui.adapters.PairsAdapter;
@@ -39,7 +38,7 @@ import ru.student.detected.educator.viewmodel.PairViewModel;
 import ru.student.detected.page1.R;
 import ru.student.detected.page1.databinding.FragmentPairsBinding;
 
-public class PairsFragment extends Fragment implements PairsAdapter.ClickListener {
+public class PairsFragment extends Fragment implements PairsAdapter.ClickListener{
     public static final int PAIR_AWARD = 1;
     private FragmentPairsBinding binding;
     private PairViewModel pairViewModel;
@@ -53,6 +52,13 @@ public class PairsFragment extends Fragment implements PairsAdapter.ClickListene
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         pairViewModel = new ViewModelProvider(requireActivity()).get(PairViewModel.class);
         entryTestViewModel = new ViewModelProvider(requireActivity()).get(EntryTestViewModel.class);
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(),
+                new OnBackPressedCallback(true) {
+                    @Override
+                    public void handleOnBackPressed() {
+                        onBackPressed();
+                    }
+                });
         currentPoints = 0;
         currentSteps = 0;
         map = pairViewModel.getMap();
@@ -79,16 +85,18 @@ public class PairsFragment extends Fragment implements PairsAdapter.ClickListene
 
     private void initPairs(List<String> engWords, List<String> rusWords) {
         entryTestViewModel.getDifficulty().observe(getViewLifecycleOwner(), difficulty -> {
-            pairViewModel.updatePair();
-            pairViewModel.getPairs().observe(getViewLifecycleOwner(), p ->{
-                List<Pair> pairs = p.stream().filter(pair -> pair.getDifficulty() == difficulty)
-                        .collect(Collectors.toList());
-                for(int i = 0; i < 4; i ++){
-                    engWords.add(pairs.get(i).getEngWord());
-                    rusWords.add(pairs.get(i).getRusWord());
-                }
-                Arrays.asList(engWords, rusWords).forEach(Collections::shuffle);
-            });
+            if (pairViewModel!=null) {
+                pairViewModel.updatePair();
+                pairViewModel.getPairs().observe(getViewLifecycleOwner(), p -> {
+                    List<Pair> pairs = p.stream().filter(pair -> pair.getDifficulty() == difficulty)
+                            .collect(Collectors.toList());
+                    for (int i = 0; i < 4; i++) {
+                        engWords.add(pairs.get(i).getEngWord());
+                        rusWords.add(pairs.get(i).getRusWord());
+                    }
+                    Arrays.asList(engWords, rusWords).forEach(Collections::shuffle);
+                });
+            }
         });
     }
 
@@ -155,15 +163,19 @@ public class PairsFragment extends Fragment implements PairsAdapter.ClickListene
 
     private void showDialog() {
         AlertDialog dialog = new AlertDialog.Builder(requireContext()).create();
-        dialog.setTitle("Задание пройдено");
-        dialog.setMessage("Правильных ответов: " + currentPoints);
         entryTestViewModel.getSteps().observe(getViewLifecycleOwner(), steps->{
             if(steps < EntryTestViewModel.ENTRY_TEST_STAGES){
+                dialog.setTitle("Задание пройдено");
+                dialog.setMessage("Правильных ответов: " + currentPoints);
                 dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Продолжить", (dialogInterface, i) -> {
                     nextStage();
                 });
+                dialog.setOnKeyListener((dialog1, keyCode, event) -> true);
             }
             else{
+                dialog.setMessage("Правильных ответов в тесте: " + entryTestViewModel.getPoints().getValue());
+                dialog.setTitle("Тест пройден");
+                dialog.setOnKeyListener(((dialog1, keyCode, event) -> true));
                 dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Завершить", (dialogInterface, i) -> {
                     SharedPreferences sharedPreferences = requireContext()
                             .getSharedPreferences("EntryTestPassed", Context.MODE_PRIVATE);
@@ -187,5 +199,25 @@ public class PairsFragment extends Fragment implements PairsAdapter.ClickListene
         final int stages_length = stages.length;
         int i = (int) (Math.random() * stages_length);
         Navigation.findNavController(requireView()).navigate(stages[i]);
+    }
+
+
+    public void onBackPressed() {
+        AlertDialog dialog = new AlertDialog.Builder(requireContext())
+                .setMessage("Вы уверены, что хотите выйти?\nПрогресс будет утерян")
+                .setTitle("Выход")
+                .setPositiveButton("Да", (dialog1, which) -> {
+                    dialog1.dismiss();
+                    Navigation.findNavController(requireView()).navigate(R.id.action_pairsFragment_to_tests);
+                    pairViewModel = null;
+                    entryTestViewModel.reset();
+                })
+                .setNegativeButton("Нет", (dialog2, which) -> {
+                    dialog2.dismiss();
+                })
+                .create();
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setOnKeyListener((dialogInterface, i, keyEvent) -> true);
     }
 }

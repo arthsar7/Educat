@@ -38,6 +38,9 @@
         <action
             android:id="@+id/action_tests_to_cardFragment"
             app:destination="@id/cardFragment" />
+        <action
+            android:id="@+id/action_tests_to_dictionaryFragment"
+            app:destination="@id/dictionaryFragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
@@ -49,6 +52,12 @@
         <action
             android:id="@+id/action_userProfileFragment_to_theoryFragment"
             app:destination="@id/theoryFragment" />
+        <action
+            android:id="@+id/action_userProfileFragment_to_authentication"
+            app:destination="@id/authentication"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/theoryFragment"
@@ -89,12 +98,15 @@
     </fragment>
     <fragment
         android:id="@+id/entryTestFragment"
-        android:name="ru.student.detected.educator.ui.fragments.tests.EntryTestFragment"
+        android:name="ru.student.detected.educator.ui.fragments.tests.EntryFragmentFragment"
         android:label="fragment_entry_test"
         tools:layout="@layout/fragment_entry_test" >
         <action
             android:id="@+id/action_entryTestFragment_to_tests"
-            app:destination="@id/tests" />
+            app:destination="@id/tests"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_entryTestFragment_to_pairsFragment"
             app:destination="@id/pairsFragment" />
@@ -154,7 +166,10 @@
             app:destination="@id/entryTestFragment" />
         <action
             android:id="@+id/action_pairsFragment_to_tests"
-            app:destination="@id/tests" />
+            app:destination="@id/tests"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/test2Fragment"
@@ -182,4 +197,12 @@
         android:id="@+id/cardFragment"
         android:name="ru.student.detected.educator.ui.fragments.CardFragment"
         android:label="CardFragment" />
+    <fragment
+        android:id="@+id/dictionaryFragment"
+        android:name="ru.student.detected.educator.ui.fragments.DictionaryFragment"
+        android:label="DictionaryFragment" >
+        <action
+            android:id="@+id/action_dictionaryFragment_to_tests"
+            app:destination="@id/tests" />
+    </fragment>
 </navigation>

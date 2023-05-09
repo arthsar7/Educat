@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -18,7 +19,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -47,6 +47,13 @@ public class Test2Fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initVideo();
         playVideo();
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(),
+                new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Toast.makeText(requireContext(), "Нажмите еще раз, чтобы выйти", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }

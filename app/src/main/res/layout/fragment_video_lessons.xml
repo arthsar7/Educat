@@ -7,6 +7,7 @@
             type="ru.student.detected.educator.viewmodel.TheoryViewModel" />
     </data>
     <RelativeLayout
+        android:background="@drawable/_bg__authentication_ek2_shape"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -44,106 +45,31 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:background="@drawable/_bg__authentication_ek2_shape"
-                    android:shadowColor="@color/white"
-                    android:shadowDx="0"
-                    android:shadowDy="0"
-                    android:shadowRadius="100"
-                    android:id="@+id/textProgress"
-                    android:layout_width="70dp"
-                    android:layout_height="15dp"
-                    android:fontFamily="@font/inter"
-                    android:text="@string/progress"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:textStyle="bold|italic"
+                <Button
+                    android:id="@+id/back"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/back"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/textView3"
-                    app:layout_constraintHorizontal_bias="0.473"
+                    app:layout_constraintHorizontal_bias="0.136"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.339" />
-
-                <TextView
-                    android:shadowColor="@color/white"
-                    android:shadowDx="0"
-                    android:shadowDy="0"
-                    android:shadowRadius="100"
-                    android:background="@drawable/_bg__authentication_ek2_shape"
-                    android:fontFamily="@font/inter"
-                    android:id="@+id/numProgress"
-                    android:textSize="12sp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold|italic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@+id/textProgress"
-                    app:layout_constraintStart_toStartOf="@+id/textProgress"
-                    app:layout_constraintTop_toBottomOf="@+id/textProgress" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.Toolbar>
 
-        <androidx.appcompat.widget.Toolbar
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/video"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/lowBar"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="0dp"
-            android:background="@drawable/_bg__authentication_ek2_shape">
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center">
-
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:contentDescription="@string/homeButtonDescription"
-                    android:id="@+id/home"
-                    android:layout_width="60dp"
-                    android:layout_height="55dp"
-                    android:layout_marginEnd="250dp"
-                    android:background="@drawable/home"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:contentDescription="@string/theoryButtonDescription"
-                    android:backgroundTint="@color/light_green"
-                    android:id="@+id/theory"
-                    android:layout_width="70dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/theory"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:contentDescription="@string/userProfileButton"
-                    android:id="@+id/profile"
-                    android:layout_width="50dp"
-                    android:layout_height="55dp"
-                    android:layout_marginStart="250dp"
-                    android:background="@drawable/user"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.appcompat.widget.Toolbar>
-
-        <FrameLayout
-            android:id="@+id/frame"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="400dp"
+            app:autoPlay="false"
             android:layout_below="@id/highBar"
-            android:layout_marginBottom="261dp">
-
-            <VideoView
-                android:id="@+id/video"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
+        <FrameLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/screen">
         </FrameLayout>
 
 

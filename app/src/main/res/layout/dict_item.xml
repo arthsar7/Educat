@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_back"
+        app:cardCornerRadius="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textBack"
+            android:layout_width="125dp"
+            android:layout_height="200dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/purple_700"
+            android:text="Back Card"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/educatlogo"/>
+    </androidx.cardview.widget.CardView>
+
+
+    <!--Add a textview for back part of the card-->
+    <androidx.cardview.widget.CardView
+        android:clickable="true"
+        app:cardCornerRadius="20dp"
+        android:id="@+id/card_front"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="200dp"
+            android:gravity="center"
+            android:text="Front Card"
+            android:id="@+id/textFront"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            android:textAlignment="center"
+            android:fontFamily="@font/inter"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="110dp"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/white"
+            android:textSize="8sp"
+            android:text="@string/difficulty"
+            android:gravity="center"/>
+        <TextView
+            android:textStyle="italic"
+            android:id="@+id/difficulty"
+            android:text="dif"
+            android:layout_width="125dp"
+            android:layout_height="140dp"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/white"
+            android:textSize="8sp"
+            android:gravity="center"/>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/some_cat"/>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

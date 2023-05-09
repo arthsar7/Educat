@@ -24,7 +24,7 @@ public class PairDataSource {
             else
                 pairs.add(new Pair(engWords.get(i), rusWords.get(i), 3));
             if(k == 12)
-                k = 1;
+                k = 0;
             k++;
         }
         Collections.shuffle(pairs);

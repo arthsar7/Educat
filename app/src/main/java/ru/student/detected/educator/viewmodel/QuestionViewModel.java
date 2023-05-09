@@ -8,7 +8,6 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import ru.student.detected.educator.data.data_sources.room.entities.QuestionEntity;
 import ru.student.detected.educator.data.models.Question;
 import ru.student.detected.educator.data.repositories.QuestionRepository;
 

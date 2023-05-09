@@ -2,7 +2,6 @@ package ru.student.detected.educator.data.data_sources;
 
 import android.app.Application;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

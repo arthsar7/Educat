@@ -1,10 +1,14 @@
 package ru.student.detected.educator.data.repositories;
+
 import android.app.Application;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Transformations;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import ru.student.detected.educator.data.data_sources.room.entities.QuestionEntity;
 import ru.student.detected.educator.data.data_sources.room.root.QuestionDatabase;
 import ru.student.detected.educator.data.models.Question;
