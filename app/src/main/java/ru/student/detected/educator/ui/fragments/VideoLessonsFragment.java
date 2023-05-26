@@ -44,7 +44,6 @@ public class VideoLessonsFragment extends Fragment{
         getLifecycle().addObserver(binding.video);
         String[] raw = new String[]{"6Qd1xAikoQc", "pz8zEqhGleY","DInKEo2hiVM","TU78I3CRVlY", "gMHxEO3LrQg"};
         int position = theoryViewModel.getPosition();
-        Toast.makeText(requireContext(), "position = " + position, Toast.LENGTH_SHORT).show();
         if(position < raw.length){
             binding.video.setEnableAutomaticInitialization(false);
             binding.video.initialize(new AbstractYouTubePlayerListener() {
